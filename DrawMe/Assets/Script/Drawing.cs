@@ -32,8 +32,9 @@ public class Drawing : MonoBehaviour
 
     void Start()
     {
-        SetColor(0); //
+        SetColor(0);
         lineThickness = 0.1f;
+        Debug.Log("»ý¼º");
     }
 
     void Update()
@@ -56,7 +57,7 @@ public class Drawing : MonoBehaviour
         }
         /*else if (Input.GetMouseButtonUp(0))
         {
-            Destroy(gameObject);
+            EndLine(gameObject);
         }*/
     }
 
@@ -69,18 +70,21 @@ public class Drawing : MonoBehaviour
         line.transform.parent = cam.transform;
         line.transform.position = mousePos;
 
+        //lineRend.material = new Material(Shader.Find("UI/Defualt"));
+        lineRend.material = new Material(defaultMaterial);//defaultMaterial;
+        //lineRend.sharedMaterial.SetColor("_Color", lineColor);
+
         //color error
-        lineRend.startColor = lineColor;
-        lineRend.endColor = lineColor;
+        //lineRend.startColor = lineColor;
+        //lineRend.endColor = lineColor;
         //lineRend.SetColors(lineColor, lineColor);
+        lineRend.material.color = lineColor;
+        //lineRend.material.color = new Color(lineColor);
 
         lineRend.startWidth = lineThickness;
         lineRend.endWidth = lineThickness;
         lineRend.numCornerVertices = 5;
-        lineRend.material = defaultMaterial;
-        lineRend.sharedMaterial.SetColor("_Color", lineColor);
-        //color error
-        //lineRend.material.color = lineColor;
+
         lineRend.SetPosition(0, mousePos);
         lineRend.SetPosition(1, mousePos);
 
@@ -104,11 +108,13 @@ public class Drawing : MonoBehaviour
         switch (color)
         {
             case 0://(int)COLOR.BLACK:
+                Debug.Log("BLACK");
                 lineColor = Color.black;
                 break;
             case 1://(int)COLOR.RED:
                 Debug.Log("RED");
-                lineColor = new Color32(1, 0, 0, 1);//Color.red;
+                lineColor = Color.red;
+                //lineColor = new Color32(1, 0, 0, 1);//Color.red;
                 break;
             case 2://(int)COLOR.GREEN:
                 Debug.Log("GREEN");

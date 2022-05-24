@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
         //Screen.SetResolution(Screen.width, (Screen.width * 16) / 9, true);
     }
 
+    public void OnColor(int color)
+    {
+        drawingManager.SetColor(color);
+    }
+
     public void OnClickComplete()
     {
         Capture();
