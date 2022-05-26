@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum COLOR : int
+/*public enum COLOR : int
 {
     BLACK = 0,
     RED = 1,
     GREEN = 2,
     BLUE = 3
-};
+};*/
 
 public class Drawing : MonoBehaviour
 {
@@ -16,6 +16,7 @@ public class Drawing : MonoBehaviour
     [SerializeField]
     public Material defaultMaterial; //라인 렌더러의 Material -> 기본
 
+    private List<LineRenderer> lines;
     private LineRenderer curLine; //지금 그리고있는 라인
     private int positionCount = 2; //처음 생성하는 라인 렌더러의 코너 점의 갯수를 지정. -> 여기서 코너 점이란 무엇인지???
     private Vector2 prevPos = Vector2.zero;
@@ -55,10 +56,11 @@ public class Drawing : MonoBehaviour
         {
             ConnectLine(mousePos);
         }
-        /*else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0))
         {
-            EndLine(gameObject);
-        }*/
+            lines.Add(curLine);
+            //EndLine(gameObject);
+        }
     }
 
     void CreateLine(Vector2 mousePos)
@@ -114,7 +116,6 @@ public class Drawing : MonoBehaviour
             case 1://(int)COLOR.RED:
                 Debug.Log("RED");
                 lineColor = Color.red;
-                //lineColor = new Color32(1, 0, 0, 1);//Color.red;
                 break;
             case 2://(int)COLOR.GREEN:
                 Debug.Log("GREEN");
@@ -139,6 +140,11 @@ public class Drawing : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void SetClear()
+    {
+
     }
 /*    Vector3 GetMousePosition()
     {
