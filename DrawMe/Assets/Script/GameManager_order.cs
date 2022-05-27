@@ -32,7 +32,7 @@ public class GameManager_order : MonoBehaviour
         {
             obj.GetComponent<Customer>().Reaction(10);
             orderText.text = obj.GetComponent<Customer>().getNowComment();
-            Invoke("TextboxDown", 1.5f);
+            Invoke("TextboxDown", 1.1f);
         }
     }
 

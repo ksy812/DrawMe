@@ -10,14 +10,14 @@ public class ChangeScene : MonoBehaviour
         switch (this.gameObject.name)
         {
             case "GameStartBtn":
-                SceneManager.LoadScene("GameCustomer");
+                SceneManager.LoadScene("SceneGameCustomer");
                 break;
 
             case "HowToPlayBtn":
-                SceneManager.LoadScene("HowToPlay");
+                SceneManager.LoadScene("SceneHowToPlay");
                 break;
             case "GoTitleBtn":
-                SceneManager.LoadScene("TitleMenu");
+                SceneManager.LoadScene("SceneTitleMenu");
                 break;
         }
     }
