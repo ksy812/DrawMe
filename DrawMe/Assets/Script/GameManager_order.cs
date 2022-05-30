@@ -11,6 +11,7 @@ public class GameManager_order : MonoBehaviour
 
     public Text orderText;
     public Image textBox;
+    public Button okButton;
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class GameManager_order : MonoBehaviour
             obj = Instantiate(customers[0], spawnPoint.position, spawnPoint.rotation);
             orderText.text = obj.GetComponent<Customer>().comment[0];
             textBox.transform.position = new Vector2(textBox.transform.position.x, textBox.transform.position.y + 1000);
+            okButton.transform.position = new Vector2(okButton.transform.position.x, okButton.transform.position.y + 1000);
 
         }
         if (Input.GetKeyDown(KeyCode.DownArrow)) //아래쪽 화살표 말고 만족도가 -1이 아니면 리액션 후 객체 삭제
@@ -39,7 +41,7 @@ public class GameManager_order : MonoBehaviour
     void TextboxDown()
     {
         textBox.transform.position = new Vector2(textBox.transform.position.x, textBox.transform.position.y - 1000);
-
+        okButton.transform.position = new Vector2(okButton.transform.position.x, okButton.transform.position.y - 1000);
     }
 
 

@@ -19,6 +19,9 @@ public class ChangeScene : MonoBehaviour
             case "GoTitleBtn":
                 SceneManager.LoadScene("SceneTitleMenu");
                 break;
+            case "accept":
+                SceneManager.LoadScene("SceneDraw");
+                break;
         }
     }
     
