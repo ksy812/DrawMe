@@ -363,6 +363,7 @@ GameObject:
   - component: {fileID: 219258979}
   - component: {fileID: 219258978}
   - component: {fileID: 219258977}
+  - component: {fileID: 219258981}
   m_Layer: 5
   m_Name: BtnComplete
   m_TagString: Untagged
@@ -460,6 +461,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 219258981}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: ChangeSceneBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &219258979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,6 +511,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219258975}
   m_CullTransparentMesh: 1
+--- !u!114 &219258981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219258975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a289a72c502f6439a91cb22aa964a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &252429182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,18 +1160,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 5
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 
 --- !u!222 &1087092903
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1554,7 +1579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 559, y: -212}
+  m_AnchoredPosition: {x: 559, y: -217}
   m_SizeDelta: {x: 393.93, y: 128.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1612657450

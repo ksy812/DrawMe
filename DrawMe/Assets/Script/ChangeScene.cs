@@ -21,6 +21,10 @@ public class ChangeScene : MonoBehaviour
                 break;
             case "accept":
                 SceneManager.LoadScene("SceneDraw");
+                //,LoadSceneMode.Additive
+                break;
+            case "BtnComplete":
+                SceneManager.LoadScene("SceneGameCustomer");
                 break;
         }
     }

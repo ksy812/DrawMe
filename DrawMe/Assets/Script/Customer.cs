@@ -18,14 +18,14 @@ public class Customer : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigidbody = GetComponent<Rigidbody2D>();
-        rigidbody.velocity = Vector2.up * 15;
+        rigidbody.velocity = Vector2.up * 1600;
         //satisfaction = -1;
 
 
     }
     private void Update()
     {
-        if (transform.position.y > -2)
+        if (transform.position.y > 500)
         {
             rigidbody.velocity = Vector2.zero;
         }
@@ -36,8 +36,8 @@ public class Customer : MonoBehaviour
 
     void MoveDown()
     {
-        transform.position = new Vector2(transform.position.x, transform.position.y - 1);
-        rigidbody.velocity = Vector2.down * 15;
+        transform.position = new Vector2(transform.position.x, transform.position.y - 100);
+        rigidbody.velocity = Vector2.down * 1600;
 
     }
 
