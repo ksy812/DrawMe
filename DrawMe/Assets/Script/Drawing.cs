@@ -45,44 +45,39 @@ public class Drawing : MonoBehaviour
 
     void Draw()
     {
-        Vector2 mousePos = cam.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
 
         if (Input.GetMouseButtonDown(0))
         {
-            //if(IsBoard() == true)
+            //if(CheckClick(mousePos))
                 CreateLine(mousePos);
         }
         else if (Input.GetMouseButton(0))
         {
             ConnectLine(mousePos);
         }
-        //else if (Input.GetMouseButtonUp(0))
-        //{
-        //    lines.Add(curLine);
-        //    //EndLine(gameObject);
-        //}
+        /*else if (Input.GetMouseButtonUp(0))
+        {
+            //lines.Add(curLine);
+            //EndLine(gameObject);
+        }*/
     }
 
     void CreateLine(Vector2 mousePos)
     {
         GameObject line = new GameObject("Line");
+        //line.name = "Line";
         LineRenderer lineRend = line.AddComponent<LineRenderer>();
         positionCount = 2;
 
         line.transform.parent = cam.transform;
         line.transform.position = mousePos;
 
-        //lineRend.material = new Material(Shader.Find("UI/Defualt"));
         lineRend.material = new Material(defaultMaterial);//defaultMaterial;
-        //lineRend.sharedMaterial.SetColor("_Color", lineColor);
 
         //color error
-        //lineRend.startColor = lineColor;
-        //lineRend.endColor = lineColor;
-        //lineRend.SetColors(lineColor, lineColor);
         lineRend.material.color = lineColor;
-        //lineRend.material.color = new Color(lineColor);
-
+        
         lineRend.startWidth = lineThickness;
         lineRend.endWidth = lineThickness;
         lineRend.numCornerVertices = 5;
@@ -144,30 +139,42 @@ public class Drawing : MonoBehaviour
 
     public void SetClear()
     {
-
+        //lines.Clear();
+        Debug.Log("SetClear 호출");
+        LineRenderer[] temm = Transform.FindObjectsOfType<LineRenderer>();
+        foreach(LineRenderer line in temm)
+        {
+            Destroy(line.gameObject);
+        }
+        //Destroy();
     }
-/*    Vector3 GetMousePosition()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        return ray.origin + ray.direction * 10;
-        
-    }*/
 
-    //hitPage, drawDistance, pageMast
-
-    // 클릭한 오브젝트가 보드인지 확인
-/*
-    bool CheckClick()
+    /// <summary>
+    /// 클릭한 곳이 캔버스인지 확인
+    /// </summary>
+    /// <returns></returns>
+    bool CheckClick(Vector2 mousePos)
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        /*        Collider2D hit = Physics2D.OverlapPoint(mousePos);
+                if (hit != null && hit.transform != null)
+                {
+                    Debug.Log("On canvas");
+                    return true;
+                }
+                Debug.Log("NULL");
+                return false;*/
+        Ray ray = Camera.main.ScreenPointToRay(mousePos);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, pageMask))
+        if (Physics.Raycast(ray, out hit))
         {
-            return true;
+            if (hit.transform.tag == "Canvas")
+            {
+                Debug.Log("On canvas");
+                return true;
+            }
         }
-
         return false;
     }
-*/
+
 }
