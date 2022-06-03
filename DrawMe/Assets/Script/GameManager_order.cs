@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameManager_order : MonoBehaviour
 {
     public GameObject[] customers;
-    public Transform spawnPoint;
+    public Vector2 spawnPoint;
     private GameObject obj;
 
     public Text orderText;
@@ -24,7 +24,8 @@ public class GameManager_order : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow)) //이제 위쪽 화살표 말고 게임 시작 | 앞 고객 완료 되면 객체 생성
         {
             //customer 랜덤뽑기 넣기
-            obj = Instantiate(customers[0], spawnPoint.position, spawnPoint.rotation);
+            //obj = Instantiate(customers[0], spawnPoint.position, spawnPoint.rotation);
+            obj=Instantiate(customers[0], spawnPoint,Quaternion.identity,GameObject.Find("Canvas").transform);
             orderText.text = obj.GetComponent<Customer>().comment[0];
             textBox.transform.position = new Vector2(textBox.transform.position.x, textBox.transform.position.y + 1000);
             okButton.transform.position = new Vector2(okButton.transform.position.x, okButton.transform.position.y + 1000);
