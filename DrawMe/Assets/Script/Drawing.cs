@@ -50,7 +50,7 @@ public class Drawing : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             //if(CheckClick(mousePos))
-                CreateLine(mousePos);
+            CreateLine(mousePos);
         }
         else if (Input.GetMouseButton(0))
         {
@@ -77,7 +77,7 @@ public class Drawing : MonoBehaviour
 
         //color error
         lineRend.material.color = lineColor;
-        
+
         lineRend.startWidth = lineThickness;
         lineRend.endWidth = lineThickness;
         lineRend.numCornerVertices = 5;
@@ -142,7 +142,7 @@ public class Drawing : MonoBehaviour
         //lines.Clear();
         Debug.Log("SetClear »£√‚");
         LineRenderer[] temm = Transform.FindObjectsOfType<LineRenderer>();
-        foreach(LineRenderer line in temm)
+        foreach (LineRenderer line in temm)
         {
             Destroy(line.gameObject);
         }
@@ -176,5 +176,6 @@ public class Drawing : MonoBehaviour
         }
         return false;
     }
+
 
 }

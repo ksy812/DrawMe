@@ -19,9 +19,8 @@ public class ChangeScene : MonoBehaviour
             case "GoTitleBtn":
                 SceneManager.LoadScene("SceneTitleMenu");
                 break;
-            case "accept":
+            case "btn_accept(Clone)":
                 SceneManager.LoadScene("SceneDraw");
-                //,LoadSceneMode.Additive
                 break;
             case "BtnComplete":
                 SceneManager.LoadScene("SceneGameCustomer");
