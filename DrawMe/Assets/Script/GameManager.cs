@@ -9,15 +9,16 @@ public class GameManager : MonoBehaviour
 {
     public Camera cam;
 
-    //public GameManager gameManager;
     public Drawing drawingManager;
     private string savePath;
     private string fileName;
 
     void Start()
     {
+        cam = Camera.main;
         savePath = Application.dataPath + "/ScreenShots/";
 
+        //화면 해상도 설정
         int setWidth = 1920;
         int setHeight = 1080;
         Screen.SetResolution(setWidth, setHeight, true);  //true:풀스크린, false:창
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     public void OnClickComplete()
     {
         Capture();
+        drawingManager.SetClear();
     }
 
     private void Capture()
@@ -41,7 +43,7 @@ public class GameManager : MonoBehaviour
         cam.targetTexture = renderTexture;
 
         Texture2D screenShot = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
-        cam.Render();
+        //cam.Render();
         RenderTexture.active = renderTexture;
 
         Rect area = new Rect(0f, 0f, Screen.width, Screen.height);
@@ -65,17 +67,11 @@ public class GameManager : MonoBehaviour
             Debug.Log(e);
         }
 
-        Destroy(screenShot);
+        //Destroy(screenShot);
     }
 
     private IEnumerator ScreenShotRoutine()
     {
         yield return new WaitForEndOfFrame();
     }
-
-    /*
-    void Update()
-    {
-        
-    }*/
 }
