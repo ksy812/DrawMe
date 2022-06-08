@@ -6,7 +6,6 @@ public class DontDestroy : MonoBehaviour
 {
     public void Awake()
     {
-        //이거 수정~~~~~~~~~~~~~~~~~~
-        //DontDestroyOnLoad(transform.root.gameObject);
+        DontDestroyOnLoad(transform.root.gameObject);
     }
 }
