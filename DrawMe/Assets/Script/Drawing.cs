@@ -33,6 +33,7 @@ public class Drawing : MonoBehaviour
 
     void Start()
     {
+        cam = Camera.main;
         SetColor(0);
         lineThickness = 0.1f;
         Debug.Log("»ý¼º");
@@ -40,21 +41,25 @@ public class Drawing : MonoBehaviour
 
     void Update()
     {
-        Draw();
+
+            Draw();
     }
 
     void Draw()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+        RaycastHit2D hit = Physics2D.Raycast(mousePos, Camera.main.transform.forward);
+        if (hit.collider == null)
+             return;
 
         if (Input.GetMouseButtonDown(0))
         {
-            //if(CheckClick(mousePos))
-            CreateLine(mousePos);
+            //if (CheckClick(mousePos))
+                CreateLine(mousePos);
         }
         else if (Input.GetMouseButton(0))
         {
-            ConnectLine(mousePos);
+                ConnectLine(mousePos);
         }
         /*else if (Input.GetMouseButtonUp(0))
         {
@@ -102,28 +107,31 @@ public class Drawing : MonoBehaviour
 
     public void SetColor(int color)
     {
+        Debug.Log("SetColor: " + color);
         switch (color)
         {
+            case -1:
+                lineColor = Color.white;
+                break;
             case 0://(int)COLOR.BLACK:
-                Debug.Log("BLACK");
                 lineColor = Color.black;
                 break;
             case 1://(int)COLOR.RED:
-                Debug.Log("RED");
                 lineColor = Color.red;
                 break;
             case 2://(int)COLOR.GREEN:
-                Debug.Log("GREEN");
                 lineColor = Color.green;
                 break;
             case 3://(int)COLOR.BLUE:
-                Debug.Log("BLUE");
                 lineColor = Color.blue;
+                break;
+            case 4:
+                lineColor = Color.yellow;
                 break;
         }
     }
 
-    bool IsBoard()
+/*    bool IsBoard()
     {
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit))
@@ -135,7 +143,7 @@ public class Drawing : MonoBehaviour
             return true;
         }
         return false;
-    }
+    }*/
 
     public void SetClear()
     {
@@ -155,26 +163,30 @@ public class Drawing : MonoBehaviour
     /// <returns></returns>
     bool CheckClick(Vector2 mousePos)
     {
-        /*        Collider2D hit = Physics2D.OverlapPoint(mousePos);
-                if (hit != null && hit.transform != null)
-                {
-                    Debug.Log("On canvas");
-                    return true;
-                }
-                Debug.Log("NULL");
-                return false;*/
-        Ray ray = Camera.main.ScreenPointToRay(mousePos);
+        RaycastHit2D hit = Physics2D.Raycast(mousePos, cam.transform.forward);
+        if (hit.collider != null)
+        {
+            GameObject obj = hit.transform.gameObject;
+            Debug.Log(obj.name);
+            return true;
+        }
+        Debug.Log("NULL");
+        return false;
+
+
+        /*Ray ray = Camera.main.ScreenPointToRay(mousePos);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.transform.tag == "Canvas")
+            *//*if (hit.transform.tag == "Canvas")
             {
                 Debug.Log("On canvas");
                 return true;
-            }
-        }
-        return false;
+            }*//*
+            return false;
+        }*/
+        //return true;
     }
 
 
