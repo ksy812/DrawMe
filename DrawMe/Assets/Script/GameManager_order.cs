@@ -33,9 +33,10 @@ public class GameManager_order : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.DownArrow)) //아래쪽 화살표 말고 만족도가 -1이 아니면 리액션 후 객체 삭제
         {
-            customer.GetComponent<Customer>().Reaction(10);
+            //프리맵명대로 삭제 방법 고안
+            GameObject.Find("고객(Clone)").GetComponent<Customer>().Reaction(10);
 
-            orderbox.GetComponent<Orderbox>().setText(customer.GetComponent<Customer>().getNowComment());
+            GameObject.Find("대화상자(Clone)").GetComponent<Orderbox>().setText(GameObject.Find("고객(Clone)").GetComponent<Customer>().getNowComment());
             Invoke("DestroyOderbox", 1.1f);
             
         }
@@ -43,7 +44,7 @@ public class GameManager_order : MonoBehaviour
 
     void DestroyOderbox()
     {
-        Destroy(orderbox);
+        Destroy(GameObject.Find("대화상자(Clone)"));
         
     }
 
