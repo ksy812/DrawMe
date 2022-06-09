@@ -8,7 +8,6 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD:DrawMe/Assets/prefabs/고객.prefab
   - component: {fileID: 1405662133860130321}
   - component: {fileID: 1405662133860130322}
   - component: {fileID: 1405662133860130323}
@@ -16,14 +15,6 @@ GameObject:
   - component: {fileID: 4154654149674312686}
   m_Layer: 0
   m_Name: "\uACE0\uAC1D"
-=======
-  - component: {fileID: 7489838152560631915}
-  - component: {fileID: 7489838152560631912}
-  - component: {fileID: 7489838152560631914}
-  - component: {fileID: 3332392552638870718}
-  m_Layer: 0
-  m_Name: "\uACE0\uAC1D1"
->>>>>>> 927c0af (commit reset to e68490d):DrawMe/Assets/prefabs/고객1.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,13 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405662133860130349}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD:DrawMe/Assets/prefabs/고객.prefab
   m_LocalPosition: {x: 400, y: 500, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 0}
-=======
-  m_LocalPosition: {x: -5, y: -8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
->>>>>>> 927c0af (commit reset to e68490d):DrawMe/Assets/prefabs/고객1.prefab
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

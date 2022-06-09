@@ -1,9 +1,1 @@
-<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"m_AlwaysRefresh":false,"showFog":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true,"showVisualEffectGraphs":true,"m_FxEnabled":true},"in2DMode":true,"pivot":{"x":1154.6942138671875,"y":420.109375,"z":-146.19517517089845},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":800.7345581054688,"orthographic":true}
-=======
-<<<<<<< HEAD
-﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"m_AlwaysRefresh":false,"showFog":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true,"showVisualEffectGraphs":true,"m_FxEnabled":true},"in2DMode":true,"pivot":{"x":-1.4095655679702759,"y":0.8413583040237427,"z":-2.2800960540771486},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":7.37960147857666,"orthographic":true}
-=======
-﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"m_AlwaysRefresh":false,"showFog":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true,"showVisualEffectGraphs":true,"m_FxEnabled":true},"in2DMode":true,"pivot":{"x":1550.3900146484375,"y":152.84921264648438,"z":-3601.71533203125},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":1490.4996337890625,"orthographic":true}
->>>>>>> parent of 4ce978c (Merge pull request #9 from iolite-ruru/jisu)
->>>>>>> 927c0af (commit reset to e68490d)
