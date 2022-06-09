@@ -5,9 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    
     public void ChangeSceneBtn()
-    {        
+    {
         switch (this.gameObject.name)
         {
             case "GameStartBtn":
@@ -22,18 +21,11 @@ public class ChangeScene : MonoBehaviour
                 break;
             case "btn_accept(Clone)":
                 SceneManager.LoadScene("SceneDraw");
-                GameManager_order.customer.SetActive(false);
-                GameManager_order.orderbox.SetActive(false);
                 break;
             case "BtnComplete":
                 SceneManager.LoadScene("SceneGameCustomer");
-                GameManager_order.customer.SetActive(true);
-                GameManager_order.orderbox.SetActive(true);
                 break;
         }
-
-        
     }
-
     
 }
