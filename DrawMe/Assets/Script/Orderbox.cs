@@ -11,4 +11,9 @@ public class Orderbox : MonoBehaviour
     {
         text.text = o;
     }
+
+    void Destroy()
+    {
+                
+    }
 }

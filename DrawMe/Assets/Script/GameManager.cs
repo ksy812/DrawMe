@@ -33,7 +33,8 @@ public class GameManager : MonoBehaviour
 
     public void OnClickComplete()
     {
-        Capture();
+        //Capture();
+        Customer.satisfaction = 10; //나중에 모델 따라 만족도 설정
         drawingManager.SetClear();
     }
 
