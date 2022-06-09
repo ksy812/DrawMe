@@ -56,11 +56,19 @@ public class Drawing : MonoBehaviour
         {
             ConnectLine(mousePos);
         }
+<<<<<<< HEAD
         /*else if (Input.GetMouseButtonUp(0))
         {
             //lines.Add(curLine);
             //EndLine(gameObject);
         }*/
+=======
+        else if (Input.GetMouseButtonUp(0))
+        {
+            lines.Add(curLine);
+            //EndLine(gameObject);
+        }
+>>>>>>> 927c0af (commit reset to e68490d)
     }
 
     void CreateLine(Vector2 mousePos)

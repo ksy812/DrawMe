@@ -21,9 +21,12 @@ public class ChangeScene : MonoBehaviour
                 break;
             case "btn_accept(Clone)":
                 SceneManager.LoadScene("SceneDraw");
+<<<<<<< HEAD
                 break;
             case "BtnComplete":
                 SceneManager.LoadScene("SceneGameCustomer");
+=======
+>>>>>>> 927c0af (commit reset to e68490d)
                 break;
         }
     }

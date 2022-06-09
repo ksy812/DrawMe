@@ -1,5 +1,13 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/SceneGameCustomer.unity
+=======
+<<<<<<< HEAD
+- path: Assets/Scenes/SampleScene.unity
+=======
+- path: Assets/Scenes/SceneGameCustomer.unity
+>>>>>>> parent of 4ce978c (Merge pull request #9 from iolite-ruru/jisu)
+>>>>>>> 927c0af (commit reset to e68490d)
   isLoaded: 1
   isActive: 1
   isSubScene: 0
