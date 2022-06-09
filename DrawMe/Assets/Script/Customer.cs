@@ -10,7 +10,7 @@ public class Customer : MonoBehaviour
     public string[] comment;
     
     private string now_comment;
-    //int satisfaction;
+    public static int satisfaction;
 
 
 
@@ -19,7 +19,7 @@ public class Customer : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigidbody = GetComponent<Rigidbody2D>();
         rigidbody.velocity = Vector2.up * 1600;
-        //satisfaction = -1;
+        satisfaction = -1;
 
 
     }
