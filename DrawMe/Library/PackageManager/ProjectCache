@@ -5,11 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-<<<<<<< HEAD
-      ticks: 637898199275722151
-=======
-      ticks: 637903572056633536
->>>>>>> parent of 6612bbb (Revert "#7 고객 객체, 대사 상자 캔버스 페이지에서 안보이게 / 고객 로테이션")
+      ticks: 637903655198971073
     m_Hash: 3492893130
   m_LockFileStatus:
     m_FilePath: D:/Project/DrawMe/DrawMe/Packages/packages-lock.json
@@ -17,11 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-<<<<<<< HEAD
-      ticks: 637898199275722151
-=======
-      ticks: 637903572056643529
->>>>>>> parent of 6612bbb (Revert "#7 고객 객체, 대사 상자 캔버스 페이지에서 안보이게 / 고객 로테이션")
+      ticks: 637903655198980675
     m_Hash: 17166110
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
