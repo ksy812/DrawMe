@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Camera cam;
 
     public Drawing drawingManager;
+    public TakeModel modelManager;
     private string savePath;
     private string fileName;
 
@@ -34,8 +35,14 @@ public class GameManager : MonoBehaviour
     public void OnClickComplete()
     {
         Capture();
+        TakeModel();
         Customer.satisfaction = 10; //나중에 모델 따라 만족도 설정
         drawingManager.SetClear();
+    }
+
+    public void TakeModel()
+    {
+       // modelManager.
     }
 
     private void Capture()
@@ -47,9 +54,9 @@ public class GameManager : MonoBehaviour
         //cam.Render();
         RenderTexture.active = renderTexture;
 
-        Rect area = new Rect(950, 540, 750, 800); //캡쳐할 영역 지정
+        Rect area = new Rect(950, -540, 750, 800); //캡쳐할 영역 지정
         //Rect area = new Rect(0f, 0f, Screen.width, Screen.height);
-        screenShot.ReadPixels(area, 0, 0);
+        screenShot.ReadPixels(area, 950, -540);
         screenShot.Apply();
 
         try
