@@ -15,8 +15,8 @@ public class GameManager_order : MonoBehaviour
     public static GameObject orderbox; //대화 상자
     private Button okButton;     //수락 버튼
 
-    public static int money;
-    public static int time;
+    public Text moneyText;
+    public static int money = 0;
 
     private void Update()
     {

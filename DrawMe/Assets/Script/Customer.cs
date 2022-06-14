@@ -12,7 +12,8 @@ public class Customer : MonoBehaviour
     private string now_comment;
     public static int satisfaction;
 
-
+    public float good_money;
+    public float bad_money;
 
     private void Awake()
     {
@@ -52,12 +53,15 @@ public class Customer : MonoBehaviour
             spriteRenderer.sprite = sprite[1];  //만족
             now_comment = comment[1];
             //만족스러운 금액 지불
+            Money.AddMoney(good_money);
+
         }
         else
         {
             spriteRenderer.sprite = sprite[2]; //불만족
             now_comment = comment[2];
             //불만족스러운 금액 지불
+            Money.AddMoney(bad_money);
         }
         Invoke("MoveDown", 1f);
         Destroy(this.gameObject, 1.5f);
