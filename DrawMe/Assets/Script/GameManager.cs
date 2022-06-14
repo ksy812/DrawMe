@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public Camera cam;
 
     public Drawing drawingManager;
-    public TakeModel modelManager;
     private string savePath;
     private string fileName;
 
@@ -34,29 +33,22 @@ public class GameManager : MonoBehaviour
 
     public void OnClickComplete()
     {
-        Capture();
-        TakeModel();
+        //Capture();
         Customer.satisfaction = 10; //나중에 모델 따라 만족도 설정
         drawingManager.SetClear();
     }
 
-    public void TakeModel()
-    {
-       // modelManager.
-    }
-
     private void Capture()
     {
-        RenderTexture renderTexture = new RenderTexture(Screen.width, Screen.height, 24);
+        RenderTexture renderTexture = new RenderTexture(Screen.width, Screen.height, 24); //1920 1200
         cam.targetTexture = renderTexture;
 
-        Texture2D screenShot = new Texture2D(750, 800, TextureFormat.RGB24, false);
+        Texture2D screenShot = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
         //cam.Render();
         RenderTexture.active = renderTexture;
 
-        Rect area = new Rect(950, -540, 750, 800); //캡쳐할 영역 지정
-        //Rect area = new Rect(0f, 0f, Screen.width, Screen.height);
-        screenShot.ReadPixels(area, 950, -540);
+        Rect area = new Rect(0f, 0f, Screen.width, Screen.height);
+        screenShot.ReadPixels(area, 0, 0);
         screenShot.Apply();
 
         try

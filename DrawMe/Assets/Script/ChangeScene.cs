@@ -15,10 +15,15 @@ public class ChangeScene : MonoBehaviour
                 break;
 
             case "HowToPlayBtn":
-                SceneManager.LoadScene("SceneHowToPlay");
+                SceneManager.LoadScene("SceneStory");
                 break;
             case "GoTitleBtn":
                 SceneManager.LoadScene("SceneTitleMenu");
+                break;
+            case "nextStoryBtn":
+                SceneManager.LoadScene("SceneGameCustomer");
+                GameManager_order.customer.SetActive(true);
+                GameManager_order.orderbox.SetActive(true);
                 break;
             case "btn_accept(Clone)":
                 SceneManager.LoadScene("SceneDraw");
