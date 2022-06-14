@@ -15,9 +15,6 @@ public class GameManager_order : MonoBehaviour
     public static GameObject orderbox; //대화 상자
     private Button okButton;     //수락 버튼
 
-    public static int money;
-    public static int time;
-
     private void Update()
     {
 
@@ -37,15 +34,12 @@ public class GameManager_order : MonoBehaviour
             customer.GetComponent<Customer>().Reaction(Customer.satisfaction);
             orderbox.GetComponent<Orderbox>().setText(customer.GetComponent<Customer>().getNowComment());
             Customer.satisfaction = -1;
-            Invoke("DisappearOrderbox", 1.5f);
-            Destroy(orderbox, 2f);
+            Destroy(orderbox, 1.5f);
             
-        }        
+        }
+
+        
     }
-    
-    private void DisappearOrderbox()
-    {
-        orderbox.SetActive(false);
-    }
+
 
 }

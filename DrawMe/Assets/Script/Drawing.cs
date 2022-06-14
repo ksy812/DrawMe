@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,11 +14,11 @@ public class Drawing : MonoBehaviour
 {
     public Camera cam;
     [SerializeField]
-    public Material defaultMaterial; //¶óÀÎ ·»´õ·¯ÀÇ Material -> ±âº»
+    public Material defaultMaterial; //ë¼ì¸ ë Œë”ëŸ¬ì˜ Material -> ê¸°ë³¸
 
     private List<LineRenderer> lines;
-    private LineRenderer curLine; //Áö±İ ±×¸®°íÀÖ´Â ¶óÀÎ
-    private int positionCount = 2; //Ã³À½ »ı¼ºÇÏ´Â ¶óÀÎ ·»´õ·¯ÀÇ ÄÚ³Ê Á¡ÀÇ °¹¼ö¸¦ ÁöÁ¤. -> ¿©±â¼­ ÄÚ³Ê Á¡ÀÌ¶õ ¹«¾ùÀÎÁö???
+    private LineRenderer curLine; //ì§€ê¸ˆ ê·¸ë¦¬ê³ ìˆëŠ” ë¼ì¸
+    private int positionCount = 2; //ì²˜ìŒ ìƒì„±í•˜ëŠ” ë¼ì¸ ë Œë”ëŸ¬ì˜ ì½”ë„ˆ ì ì˜ ê°¯ìˆ˜ë¥¼ ì§€ì •. -> ì—¬ê¸°ì„œ ì½”ë„ˆ ì ì´ë€ ë¬´ì—‡ì¸ì§€???
     private Vector2 prevPos = Vector2.zero;
 
     //********************
@@ -36,13 +36,13 @@ public class Drawing : MonoBehaviour
         cam = Camera.main;
         SetColor(0);
         lineThickness = 0.1f;
-        Debug.Log("»ı¼º");
+        Debug.Log("ìƒì„±");
     }
 
     void Update()
     {
 
-            Draw();
+        Draw();
     }
 
     void Draw()
@@ -50,16 +50,16 @@ public class Drawing : MonoBehaviour
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Camera.main.transform.forward);
         if (hit.collider == null)
-             return;
+            return;
 
         if (Input.GetMouseButtonDown(0))
         {
             //if (CheckClick(mousePos))
-                CreateLine(mousePos);
+            CreateLine(mousePos);
         }
         else if (Input.GetMouseButton(0))
         {
-                ConnectLine(mousePos);
+            ConnectLine(mousePos);
         }
         /*else if (Input.GetMouseButtonUp(0))
         {
@@ -95,7 +95,7 @@ public class Drawing : MonoBehaviour
 
     void ConnectLine(Vector2 mousePos)
     {
-        //¿òÁ÷ÀÓÀÌ ÀÖ´Ù¸é
+        //ì›€ì§ì„ì´ ìˆë‹¤ë©´
         if (prevPos != null && Mathf.Abs(Vector2.Distance(prevPos, mousePos)) >= 0.001f)
         {
             prevPos = mousePos;
@@ -131,24 +131,24 @@ public class Drawing : MonoBehaviour
         }
     }
 
-/*    bool IsBoard()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit))
+    /*    bool IsBoard()
         {
-            if (hitPage != hit.transform)
+            RaycastHit hit;
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit))
             {
-                hitPage = hit.transform;
+                if (hitPage != hit.transform)
+                {
+                    hitPage = hit.transform;
+                }
+                return true;
             }
-            return true;
-        }
-        return false;
-    }*/
+            return false;
+        }*/
 
     public void SetClear()
     {
         //lines.Clear();
-        Debug.Log("SetClear È£Ãâ");
+        Debug.Log("SetClear í˜¸ì¶œ");
         LineRenderer[] temm = Transform.FindObjectsOfType<LineRenderer>();
         foreach (LineRenderer line in temm)
         {
@@ -158,7 +158,7 @@ public class Drawing : MonoBehaviour
     }
 
     /// <summary>
-    /// Å¬¸¯ÇÑ °÷ÀÌ Äµ¹ö½ºÀÎÁö È®ÀÎ
+    /// í´ë¦­í•œ ê³³ì´ ìº”ë²„ìŠ¤ì¸ì§€ í™•ì¸
     /// </summary>
     /// <returns></returns>
     bool CheckClick(Vector2 mousePos)
@@ -176,7 +176,6 @@ public class Drawing : MonoBehaviour
 
         /*Ray ray = Camera.main.ScreenPointToRay(mousePos);
         RaycastHit hit;
-
         if (Physics.Raycast(ray, out hit))
         {
             *//*if (hit.transform.tag == "Canvas")
