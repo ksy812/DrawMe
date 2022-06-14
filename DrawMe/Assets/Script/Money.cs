@@ -13,13 +13,12 @@ public class Money : MonoBehaviour
         amount += money;
     }
 
-    public void Start()
+    void Start()
     {
         text.text = "0";
     }
-    public void Update()
+    void Update()
     {
         text.text = amount+"";
-        //더 좋은 방법 찾아보기
     }
 }
