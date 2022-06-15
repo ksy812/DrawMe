@@ -13,7 +13,6 @@ public class GameManager_order : MonoBehaviour
 
     public static GameObject customer; //고객 객체
     public static GameObject orderbox; //대화 상자
-    private Button okButton;     //수락 버튼
 
     public Text moneyText;
     public static int money = 0;
@@ -26,8 +25,8 @@ public class GameManager_order : MonoBehaviour
             int random = Random.Range(0, customers.Length); //customer 랜덤뽑기
             customer = Instantiate(customers[random], spawnPoint_customer, Quaternion.identity); //캐릭터 생성
             orderbox = Instantiate(orderbox_prefab, spawnPoint_orderbox, Quaternion.identity); //대화상자 생성
-            okButton = Instantiate(okButton_prefab, spawnPoint_okbutton, Quaternion.identity, GameObject.Find("Canvas").transform); //수락버튼 생성
-
+            Instantiate(okButton_prefab, spawnPoint_okbutton, Quaternion.identity, GameObject.Find("Canvas").transform); //수락버튼 생성
+            Customer.object_is_destory = false;
             orderbox.GetComponent<Orderbox>().setText(customer.GetComponent<Customer>().comment[0]); //대화상자 주문 텍스트
 
         }
@@ -42,10 +41,15 @@ public class GameManager_order : MonoBehaviour
             
         }        
     }
-    
+
+    private void Awake()
+    {
+        Time.watch.Start();
+    }
     private void DisappearOrderbox()
     {
         orderbox.SetActive(false);
+        Customer.object_is_destory = true;
     }
 
 }

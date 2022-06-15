@@ -9,4 +9,9 @@ public class DontDestroy : MonoBehaviour
         
         DontDestroyOnLoad(transform.root.gameObject);
     }
+
+    public void DonsdestroyDestroy()
+    {
+        Destroy(gameObject);
+    }
 }
