@@ -19,9 +19,8 @@ public class ChangeScene : MonoBehaviour
             case "GoTitleBtn":
                 SceneManager.LoadScene("SceneTitleMenu");
                 break;
-            case "SkipBtn"://
+            case "SkipBtn":
                 SceneManager.LoadScene("SceneGameCustomer");
-                Time.watch.Start();
                 break;
             case "btn_accept(Clone)":
                 SceneManager.LoadScene("SceneDraw");

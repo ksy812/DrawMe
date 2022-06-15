@@ -20,7 +20,7 @@ public class TouchPanel : MonoBehaviour
     private void Start()
     {
         i = 0;
-        text.text = storys[i];
+        text.text = storys[i++];
     }
     void Update()
     {

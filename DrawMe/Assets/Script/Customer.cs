@@ -15,13 +15,15 @@ public class Customer : MonoBehaviour
     public float good_money;
     public float bad_money;
 
+    public static bool object_is_destory;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigidbody = GetComponent<Rigidbody2D>();
         rigidbody.velocity = Vector2.up * 1600;
         satisfaction = -1;
-
+        object_is_destory = true;
 
     }
     private void Update()
@@ -39,7 +41,6 @@ public class Customer : MonoBehaviour
     {
         transform.position = new Vector2(transform.position.x, transform.position.y - 100);
         rigidbody.velocity = Vector2.down * 1600;
-
     }
 
     public void Reaction(int satisfaction)
