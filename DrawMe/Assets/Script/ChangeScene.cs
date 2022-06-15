@@ -19,7 +19,7 @@ public class ChangeScene : MonoBehaviour
             case "GoTitleBtn":
                 SceneManager.LoadScene("SceneTitleMenu");
                 break;
-            case "nextStoryBtn"://
+            case "SkipBtn"://
                 SceneManager.LoadScene("SceneGameCustomer");
                 Time.watch.Start();
                 break;
@@ -32,6 +32,9 @@ public class ChangeScene : MonoBehaviour
                 SceneManager.LoadScene("SceneGameCustomer");
                 GameManager_order.customer.SetActive(true);
                 GameManager_order.orderbox.SetActive(true);
+                break;
+            case "EndBtn":
+                SceneManager.LoadScene("SceneTitleMenu");
                 break;
         }
 
