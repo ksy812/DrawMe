@@ -34,6 +34,8 @@ public class Time : MonoBehaviour
             UnityEngine.Debug.Log("엔딩씬 호출");
             watch.Stop();
             watch.Reset();
+            DontDestroy.destroy=true;
+            //엔딩 효과
             SceneManager.LoadScene("SceneEnding");
             
         }
