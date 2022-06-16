@@ -138,6 +138,9 @@ public class Drawing : MonoBehaviour
             case 6://회색
                 lineColor = new Color(0.5f, 0.5f, 0.5f, 1f);
                 break;
+            case 7://갈색
+                lineColor = new Color(0.6f, 0.5f, 0.3f, 1f);
+                break;
 
         }
     }
