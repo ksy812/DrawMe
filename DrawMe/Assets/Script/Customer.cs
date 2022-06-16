@@ -5,14 +5,17 @@ using UnityEngine;
 public class Customer : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
-    Rigidbody2D rigidbody;
+    new Rigidbody2D rigidbody;
     public Sprite[] sprite; 
     public string[] comment;
     
     private string now_comment;
     public static int satisfaction;
 
+    public float good_money;
+    public float bad_money;
 
+    public static bool object_is_destory;
 
     private void Awake()
     {
@@ -20,12 +23,12 @@ public class Customer : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         rigidbody.velocity = Vector2.up * 1600;
         satisfaction = -1;
-
+        object_is_destory = true;
 
     }
     private void Update()
     {
-        if (transform.position.y > 500)
+        if (transform.position.y > 350)
         {
             rigidbody.velocity = Vector2.zero;
         }
@@ -38,7 +41,6 @@ public class Customer : MonoBehaviour
     {
         transform.position = new Vector2(transform.position.x, transform.position.y - 100);
         rigidbody.velocity = Vector2.down * 1600;
-
     }
 
     public void Reaction(int satisfaction)
@@ -49,15 +51,18 @@ public class Customer : MonoBehaviour
 
         if (satisfaction > 50)
         {
-            spriteRenderer.sprite = sprite[1];  //만족
-            now_comment = comment[1];
+            spriteRenderer.sprite = sprite[0];  //만족
+            now_comment = comment[0];
             //만족스러운 금액 지불
+            Money.AddMoney(good_money);
+
         }
         else
         {
-            spriteRenderer.sprite = sprite[2]; //불만족
-            now_comment = comment[2];
+            spriteRenderer.sprite = sprite[1]; //불만족
+            now_comment = comment[1];
             //불만족스러운 금액 지불
+            Money.AddMoney(bad_money);
         }
         Invoke("MoveDown", 1f);
         Destroy(this.gameObject, 1.5f);

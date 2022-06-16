@@ -4,9 +4,20 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
-    public void Awake()
+    public static bool destroy;
+    private void Awake()
     {
-        
+        destroy = false;
         DontDestroyOnLoad(transform.root.gameObject);
     }
+
+    private void Update()
+    {
+        if (destroy)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
+
+
