@@ -28,7 +28,7 @@ public class Customer : MonoBehaviour
     }
     private void Update()
     {
-        if (transform.position.y > 500)
+        if (transform.position.y > 350)
         {
             rigidbody.velocity = Vector2.zero;
         }
@@ -51,16 +51,16 @@ public class Customer : MonoBehaviour
 
         if (satisfaction > 50)
         {
-            spriteRenderer.sprite = sprite[1];  //만족
-            now_comment = comment[1];
+            spriteRenderer.sprite = sprite[0];  //만족
+            now_comment = comment[0];
             //만족스러운 금액 지불
             Money.AddMoney(good_money);
 
         }
         else
         {
-            spriteRenderer.sprite = sprite[2]; //불만족
-            now_comment = comment[2];
+            spriteRenderer.sprite = sprite[1]; //불만족
+            now_comment = comment[1];
             //불만족스러운 금액 지불
             Money.AddMoney(bad_money);
         }

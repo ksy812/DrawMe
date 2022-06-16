@@ -337,7 +337,7 @@ MonoBehaviour:
   - {fileID: 5548264815112306530, guid: ec3c71da8457d4545b5f484f1e8dedac, type: 3}
   orderbox_prefab: {fileID: 8100404583198677390, guid: 1e99f62fd64525945b18bcd9c276c229, type: 3}
   okButton_prefab: {fileID: 2157617636048130431, guid: 5e998ebdd8b19aa40831f75a07525eda, type: 3}
-  spawnPoint_customer: {x: 400, y: -500}
+  spawnPoint_customer: {x: 500, y: -500}
   spawnPoint_orderbox: {x: 1200, y: 600}
   spawnPoint_okbutton: {x: 1360, y: 460}
   moneyText: {fileID: 0}
