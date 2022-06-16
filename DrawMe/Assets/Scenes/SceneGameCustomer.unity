@@ -339,7 +339,8 @@ MonoBehaviour:
   okButton_prefab: {fileID: 2157617636048130431, guid: 5e998ebdd8b19aa40831f75a07525eda, type: 3}
   spawnPoint_customer: {x: 400, y: -500}
   spawnPoint_orderbox: {x: 1200, y: 600}
-  spawnPoint_okbutton: {x: 1400, y: 350}
+  spawnPoint_okbutton: {x: 1360, y: 460}
+  moneyText: {fileID: 0}
 --- !u!1 &1858217985
 GameObject:
   m_ObjectHideFlags: 0
