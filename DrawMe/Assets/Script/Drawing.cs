@@ -31,6 +31,8 @@ public class Drawing : MonoBehaviour
 
     private float lineThickness;
 
+    int sort=0; //라인 순서
+
     void Start()
     {
         cam = Camera.main;
@@ -91,6 +93,7 @@ public class Drawing : MonoBehaviour
         lineRend.SetPosition(1, mousePos);
 
         curLine = lineRend;
+        line.GetComponent<LineRenderer>().sortingOrder = sort++;
     }
 
     void ConnectLine(Vector2 mousePos)
@@ -107,28 +110,35 @@ public class Drawing : MonoBehaviour
 
     public void SetColor(int color)
     {
+        //new Color(0.5f, 0.1f, 0.8f, 1f);
         Debug.Log("SetColor: " + color);
         switch (color)
         {
             case -1:
-                //lineColor = new Color(190f,0,0);
                 lineColor = Color.white;
                 break;
             case 0://(int)COLOR.BLACK:
                 lineColor = Color.black;
                 break;
             case 1://(int)COLOR.RED:
-                lineColor = Color.red;
+                lineColor = new Color(0.8f, 0.25f, 0.0f, 1f);
                 break;
             case 2://(int)COLOR.GREEN:
-                lineColor = Color.green;
+                lineColor = new Color(0.5f, 0.7f, 0.03f, 1f);
                 break;
             case 3://(int)COLOR.BLUE:
-                lineColor = Color.blue;
+                lineColor = new Color(0f, 0.4f, 1f, 1f);
                 break;
-            case 4:
+            case 4://노랑
                 lineColor = Color.yellow;
                 break;
+            case 5://보라
+                lineColor = new Color(0.7f, 0.4f, 1f, 1f);
+                break;
+            case 6://회색
+                lineColor = new Color(0.5f, 0.5f, 0.5f, 1f);
+                break;
+
         }
     }
 
