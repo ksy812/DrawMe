@@ -5,7 +5,7 @@ using UnityEngine;
 public class Customer : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
-    Rigidbody2D rigidbody;
+    new Rigidbody2D rigidbody;
     public Sprite[] sprite; 
     public string[] comment;
     

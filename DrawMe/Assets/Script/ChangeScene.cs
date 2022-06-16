@@ -37,6 +37,8 @@ public class ChangeScene : MonoBehaviour
                 SceneManager.LoadScene("SceneTitleMenu");
                 break;
             case "StopAndTitleBtn":
+                GameManager_order.customer.SetActive(true);
+                GameManager_order.orderbox.SetActive(true);
                 DontDestroy.destroy = true;
                 SceneManager.LoadScene("SceneTitleMenu");
                 break;

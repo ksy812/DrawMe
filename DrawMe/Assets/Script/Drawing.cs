@@ -111,6 +111,7 @@ public class Drawing : MonoBehaviour
         switch (color)
         {
             case -1:
+                //lineColor = new Color(190f,0,0);
                 lineColor = Color.white;
                 break;
             case 0://(int)COLOR.BLACK:
