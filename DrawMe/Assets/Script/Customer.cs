@@ -52,7 +52,7 @@ public class Customer : MonoBehaviour
         if (satisfaction > 50)
         {
             spriteRenderer.sprite = sprite[0];  //만족
-            now_comment = comment[0];
+            now_comment = comment[2];
             //만족스러운 금액 지불
             Money.AddMoney(good_money);
 
@@ -60,7 +60,7 @@ public class Customer : MonoBehaviour
         else
         {
             spriteRenderer.sprite = sprite[1]; //불만족
-            now_comment = comment[1];
+            now_comment = comment[2];
             //불만족스러운 금액 지불
             Money.AddMoney(bad_money);
         }
