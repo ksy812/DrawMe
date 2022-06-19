@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public Camera cam;
 
     public Drawing drawingManager;
+    public TakeModel serverManager;
+
     private string savePath;
     private string fileName;
 
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         //Screen.SetResolution(Screen.width, (Screen.width * 16) / 9, true);
     }
+    
 
     public void OnColor(int color)
     {
@@ -33,12 +36,14 @@ public class GameManager : MonoBehaviour
 
     public void OnClickComplete()
     {
-        //Capture();
+        serverManager.Btn();
+        //TakeCapture();
         Customer.satisfaction = 10; //나중에 모델 따라 만족도 설정
         drawingManager.SetClear();
     }
 
-    private void Capture()
+
+    private void TakeCapture()
     {
         RenderTexture renderTexture = new RenderTexture(Screen.width, Screen.height, 24); //1920 1200
         cam.targetTexture = renderTexture;
