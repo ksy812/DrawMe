@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e0b945023069c478871e776c7ecd24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 0}
 --- !u!4 &144232835
 Transform:
   m_ObjectHideFlags: 0
@@ -301,7 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 519420031}
   drawingManager: {fileID: 1024434877}
-  socketManager: {fileID: 0}
+  serverManager: {fileID: 0}
 --- !u!114 &151728098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,7 +451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 519420031}
   drawingManager: {fileID: 1024434877}
-  socketManager: {fileID: 144232834}
+  serverManager: {fileID: 144232834}
 --- !u!114 &219258978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,7 +624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 519420031}
   drawingManager: {fileID: 1024434877}
-  socketManager: {fileID: 0}
+  serverManager: {fileID: 0}
 --- !u!114 &222969789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -838,7 +839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 519420031}
   drawingManager: {fileID: 1024434877}
-  socketManager: {fileID: 0}
+  serverManager: {fileID: 0}
 --- !u!1 &398310863
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,7 +894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 519420031}
   drawingManager: {fileID: 1024434877}
-  socketManager: {fileID: 0}
+  serverManager: {fileID: 0}
 --- !u!114 &398310866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1121,7 +1122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 519420031}
   drawingManager: {fileID: 1024434877}
-  socketManager: {fileID: 0}
+  serverManager: {fileID: 0}
 --- !u!114 &446529311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1417,7 +1418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 519420031}
   drawingManager: {fileID: 1024434877}
-  socketManager: {fileID: 0}
+  serverManager: {fileID: 0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1587,9 +1588,9 @@ RectTransform:
   m_Father: {fileID: 252429186}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1080, y: 490.81}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1080, y: -589.19}
   m_SizeDelta: {x: 750, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &690639018
@@ -2262,7 +2263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 519420031}
   drawingManager: {fileID: 1024434877}
-  socketManager: {fileID: 0}
+  serverManager: {fileID: 0}
 --- !u!114 &1295966541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2505,7 +2506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 519420031}
   drawingManager: {fileID: 1024434877}
-  socketManager: {fileID: 0}
+  serverManager: {fileID: 0}
 --- !u!1 &1508917674
 GameObject:
   m_ObjectHideFlags: 0
@@ -2560,7 +2561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 519420031}
   drawingManager: {fileID: 1024434877}
-  socketManager: {fileID: 0}
+  serverManager: {fileID: 0}
 --- !u!114 &1508917677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2709,7 +2710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 519420031}
   drawingManager: {fileID: 1024434877}
-  socketManager: {fileID: 0}
+  serverManager: {fileID: 0}
 --- !u!114 &1612657451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3008,7 +3009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 519420031}
   drawingManager: {fileID: 1024434877}
-  socketManager: {fileID: 0}
+  serverManager: {fileID: 0}
 --- !u!114 &1971079336
 MonoBehaviour:
   m_ObjectHideFlags: 0

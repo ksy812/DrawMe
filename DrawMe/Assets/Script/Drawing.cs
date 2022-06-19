@@ -87,7 +87,7 @@ public class Drawing : MonoBehaviour
 
         lineRend.startWidth = lineThickness;
         lineRend.endWidth = lineThickness;
-        lineRend.numCornerVertices = 5;
+        lineRend.numCornerVertices = 10;
 
         lineRend.SetPosition(0, mousePos);
         lineRend.SetPosition(1, mousePos);

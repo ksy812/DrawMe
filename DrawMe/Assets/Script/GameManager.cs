@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     public void OnClickComplete()
     {
         serverManager.Btn();
-        //TakeCapture();
+        TakeCapture();
         Customer.satisfaction = 10; //나중에 모델 따라 만족도 설정
         drawingManager.SetClear();
     }
@@ -48,11 +48,12 @@ public class GameManager : MonoBehaviour
         RenderTexture renderTexture = new RenderTexture(Screen.width, Screen.height, 24); //1920 1200
         cam.targetTexture = renderTexture;
 
-        Texture2D screenShot = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
-        //cam.Render();
+        Texture2D screenShot = new Texture2D(750, 800, TextureFormat.RGB24, false); //캡쳐 크기
+        cam.Render();
         RenderTexture.active = renderTexture;
 
-        Rect area = new Rect(0f, 0f, Screen.width, Screen.height);
+        Rect area = new Rect(710, 190, 1460, 1190); //직접적으로 캡쳐 위치 조정하는 부분
+        //Rect area = new Rect(750, 0f, 1500, 1000);
         screenShot.ReadPixels(area, 0, 0);
         screenShot.Apply();
 
