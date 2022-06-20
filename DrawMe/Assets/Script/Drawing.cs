@@ -18,13 +18,9 @@ public class Drawing : MonoBehaviour
 
     private List<LineRenderer> lines;
     private LineRenderer curLine; //지금 그리고있는 라인
-    private int positionCount = 2; //처음 생성하는 라인 렌더러의 코너 점의 갯수를 지정. -> 여기서 코너 점이란 무엇인지???
+    private int positionCount = 2; //처음 생성하는 라인 렌더러의 코너 점 갯수 지정
     private Vector2 prevPos = Vector2.zero;
 
-    //********************
-    [HideInInspector]
-    public Transform hitPage;
-    bool d_enable = false;
 
     [SerializeField]
     private Color lineColor;
@@ -63,11 +59,6 @@ public class Drawing : MonoBehaviour
         {
                 ConnectLine(mousePos);
         }
-        /*else if (Input.GetMouseButtonUp(0))
-        {
-            //lines.Add(curLine);
-            //EndLine(gameObject);
-        }*/
     }
 
     void CreateLine(Vector2 mousePos)
@@ -145,20 +136,6 @@ public class Drawing : MonoBehaviour
         }
     }
 
-/*    bool IsBoard()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit))
-        {
-            if (hitPage != hit.transform)
-            {
-                hitPage = hit.transform;
-            }
-            return true;
-        }
-        return false;
-    }*/
-
     public void SetClear()
     {
         //lines.Clear();
@@ -186,21 +163,6 @@ public class Drawing : MonoBehaviour
         }
         Debug.Log("NULL");
         return false;
-
-
-        /*Ray ray = Camera.main.ScreenPointToRay(mousePos);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit))
-        {
-            *//*if (hit.transform.tag == "Canvas")
-            {
-                Debug.Log("On canvas");
-                return true;
-            }*//*
-            return false;
-        }*/
-        //return true;
     }
 
 
