@@ -5,72 +5,40 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
 
-using System.IO;
-using System.Text;
-
 public class packet
 {
     public int errorno;
 }
-
-public class getter : packet
-{
-    public float acc;
-}
-
-public class res_uploadimage : packet
+public class uploader : packet
 {
     public bool success;
+    public string acc;
 }
 
 public class ModelManager : MonoBehaviour
 {
     string url = "http://localhost:3000";
-    //public Sprite sampleImage;
-    public Image image;
     public float accuracy = -1f;
-    public string type = "cat";
+    public static string type = null;
 
     private void Start()
     {
-        Debug.Log("ModelManager Start() call");
+        //Debug.Log("ModelManager Start() call");
     }
 
     public float TakeModel()
     {
+        type = "crab";
         StartCoroutine(Upload(result =>
         {
-            var responseResult = JsonConvert.DeserializeObject<res_uploadimage>(result);
+            var responseResult = JsonConvert.DeserializeObject<uploader>(result);
             Debug.Log("Upload 성공여부 : " + responseResult.success);
+            Debug.Log("acc 반환값 : " + responseResult.acc);
+            accuracy = float.Parse(responseResult.acc);
+            Debug.Log("accuracy1: " + accuracy);
         }));
-        StartCoroutine(GetAccuracy(result =>
-        {
-            var responseResult = JsonConvert.DeserializeObject<getter>(result);
-            this.accuracy = responseResult.acc;
-            Debug.Log("Get Accuracy : " + responseResult.acc);
-        }));
+        Debug.Log("accuracy2: " + accuracy);
         return accuracy;
-    }
-
-
-    public IEnumerator GetAccuracy(System.Action<float> OnCompleteDownload) //string imaggename, System.Action<Texture> OnCompleteDownload
-    {
-        var path = string.Format("{0}/{1}", url, "accuracy");
-        UnityWebRequest webRequest = UnityWebRequestTexture.GetTexture(path);
-        yield return webRequest.SendWebRequest();
-
-        if (webRequest.isNetworkError || webRequest.isHttpError)
-        {
-            Debug.Log(webRequest.error);
-        }
-        else
-        {
-            var result = webRequest.downloadHandler.data;
-            OnCompleteDownload(result);
-
-            Debug.Log("GetAccuracy() 요청 정상 실행");
-            //OnCompleteDownload(((DownloadHandlerTexture)webRequest.downloadHandler).text);
-        }
     }
 
     private IEnumerator Upload(System.Action<string> OnCompleteUpload)
@@ -83,7 +51,7 @@ public class ModelManager : MonoBehaviour
 
         //System.String name, System.Byte[] data, System.String fileName, System.String contentType
         formData.Add(new MultipartFormFileSection("imgfile", tex, filename, "image/png"));
-        //formData.Add(new MultipartFormFileSection("type", type));
+        formData.Add(new MultipartFormDataSection("customer", type));
 
         var path = string.Format("{0}/{1}", url, "uploadimage"); //"{0}/{1}"의 의미??
 

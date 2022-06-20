@@ -8,6 +8,7 @@ using System.IO;
 public class GameManager : MonoBehaviour
 {
     public Camera cam;
+    public Slider slider;
 
     public Drawing drawingManager;
     public ModelManager serverManager;
@@ -30,19 +31,24 @@ public class GameManager : MonoBehaviour
         //Screen.SetResolution(Screen.width, (Screen.width * 16) / 9, true);
     }
 
-
     public void OnColor(int color)
     {
         drawingManager.SetColor(color);
     }
 
+    public void OnThickness()
+    {
+        drawingManager.SetThickness(slider.value);
+    }
     public void OnClickComplete()
     {
         TakeCapture();
 
-        float satisfaction = serverManager.TakeModel();//serverManager.GetAccuracy();
+        float satisfaction = serverManager.TakeModel();
         Customer.satisfaction = satisfaction; //나중에 모델 따라 만족도 설정
+        Debug.Log("satisfaction = " + satisfaction);
         Debug.Log("Customer.satisfaction = " + Customer.satisfaction);
+
         drawingManager.SetClear();
     }
 
@@ -82,8 +88,8 @@ public class GameManager : MonoBehaviour
         //Destroy(screenShot);
     }
 
-    private IEnumerator ScreenShotRoutine()
+/*    private IEnumerator ScreenShotRoutine()
     {
         yield return new WaitForEndOfFrame();
-    }
+    }*/
 }

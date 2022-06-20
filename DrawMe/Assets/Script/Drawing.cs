@@ -33,13 +33,12 @@ public class Drawing : MonoBehaviour
     {
         cam = Camera.main;
         SetColor(0);
-        lineThickness = 0.1f;
-        Debug.Log("积己");
+        SetThickness(0.1f);
+        //Debug.Log("Drawing 按眉 积己");
     }
 
     void Update()
     {
-
             Draw();
     }
 
@@ -99,10 +98,14 @@ public class Drawing : MonoBehaviour
         }
     }
 
+    public void SetThickness(float thickness)
+    {
+        lineThickness = thickness;
+    }
+
     public void SetColor(int color)
     {
-        //new Color(0.5f, 0.1f, 0.8f, 1f);
-        Debug.Log("SetColor: " + color);
+        //Debug.Log("SetColor: " + color);
         switch (color)
         {
             case -1:
@@ -139,7 +142,7 @@ public class Drawing : MonoBehaviour
     public void SetClear()
     {
         //lines.Clear();
-        Debug.Log("SetClear 龋免");
+        //Debug.Log("SetClear 龋免");
         LineRenderer[] temm = Transform.FindObjectsOfType<LineRenderer>();
         foreach (LineRenderer line in temm)
         {
