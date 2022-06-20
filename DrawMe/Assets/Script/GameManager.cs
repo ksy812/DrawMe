@@ -10,12 +10,11 @@ public class GameManager : MonoBehaviour
     public Camera cam;
 
     public Drawing drawingManager;
-    public TakeModel serverManager;
+    public ModelManager serverManager;
 
     private string savePath;
-    private string fileName;
-
-    public static byte[] s;
+    public static string fileName;
+    public static byte[] screenShotPNG;
 
 
     void Start()
@@ -30,7 +29,7 @@ public class GameManager : MonoBehaviour
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         //Screen.SetResolution(Screen.width, (Screen.width * 16) / 9, true);
     }
-    
+
 
     public void OnColor(int color)
     {
@@ -40,8 +39,8 @@ public class GameManager : MonoBehaviour
     public void OnClickComplete()
     {
         TakeCapture();
-        
-        float satisfaction = serverManager.Btn();//serverManager.GetAccuracy();
+
+        float satisfaction = serverManager.TakeModel();//serverManager.GetAccuracy();
         Customer.satisfaction = satisfaction; //나중에 모델 따라 만족도 설정
         Debug.Log("Customer.satisfaction = " + Customer.satisfaction);
         drawingManager.SetClear();
@@ -62,8 +61,8 @@ public class GameManager : MonoBehaviour
         screenShot.ReadPixels(area, 0, 0);
         screenShot.Apply();
 
-        s = screenShot.EncodeToPNG();
-        Debug.Log("1:" + s);
+        screenShotPNG = screenShot.EncodeToPNG();
+        //Debug.Log("1:" + screenShotPNG);
         try
         {
             if (Directory.Exists(savePath) == false)
@@ -72,7 +71,7 @@ public class GameManager : MonoBehaviour
             }
             fileName = savePath + System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".png";
 
-            File.WriteAllBytes(fileName, s); //저장
+            File.WriteAllBytes(fileName, screenShotPNG); //저장
             //File.WriteAllBytes(fileName, screenShot.EncodeToPNG());
         }
         catch (Exception e)
@@ -80,7 +79,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("capture error");
             Debug.Log(e);
         }
-
         //Destroy(screenShot);
     }
 

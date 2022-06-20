@@ -13,9 +13,9 @@ public class packet
     public int errorno;
 }
 
-public class req_uploadimage
+public class getter : packet
 {
-    public string name;
+    public float acc;
 }
 
 public class res_uploadimage : packet
@@ -23,7 +23,7 @@ public class res_uploadimage : packet
     public bool success;
 }
 
-public class TakeModel : MonoBehaviour
+public class ModelManager : MonoBehaviour
 {
     string url = "http://localhost:3000";
     //public Sprite sampleImage;
@@ -33,28 +33,27 @@ public class TakeModel : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Take Model Start() call");
+        Debug.Log("ModelManager Start() call");
     }
 
-    public float Btn()
+    public float TakeModel()
     {
-        var reqUploadImage = new req_uploadimage();
-        //sampleImage.name = "imgfile";
-        reqUploadImage.name = "cat.png";
-        var json = JsonConvert.SerializeObject(reqUploadImage);
-
-        Debug.Log("json:"+json);
-
-        StartCoroutine(Upload(json, (result) =>
+        StartCoroutine(Upload(result =>
         {
             var responseResult = JsonConvert.DeserializeObject<res_uploadimage>(result);
-            Debug.Log("성공여부 : " + responseResult.success);
+            Debug.Log("Upload 성공여부 : " + responseResult.success);
         }));
-        StartCoroutine(GetAccuracy());
+        StartCoroutine(GetAccuracy(result =>
+        {
+            var responseResult = JsonConvert.DeserializeObject<getter>(result);
+            this.accuracy = responseResult.acc;
+            Debug.Log("Get Accuracy : " + responseResult.acc);
+        }));
         return accuracy;
     }
 
-    public IEnumerator GetAccuracy() //strin imaggename, System.Action<Texture> OnCompleteDownload
+
+    public IEnumerator GetAccuracy(System.Action<float> OnCompleteDownload) //string imaggename, System.Action<Texture> OnCompleteDownload
     {
         var path = string.Format("{0}/{1}", url, "accuracy");
         UnityWebRequest webRequest = UnityWebRequestTexture.GetTexture(path);
@@ -66,31 +65,25 @@ public class TakeModel : MonoBehaviour
         }
         else
         {
-            this.accuracy = 100f;
+            var result = webRequest.downloadHandler.data;
+            OnCompleteDownload(result);
+
             Debug.Log("GetAccuracy() 요청 정상 실행");
-            //OnCompleteDownload(((DownloadHandlerTexture)webRequest.downloadHandler).texture);
+            //OnCompleteDownload(((DownloadHandlerTexture)webRequest.downloadHandler).text);
         }
     }
 
-    private IEnumerator Upload(string data, System.Action<string> OnCompleteUpload)
+    private IEnumerator Upload(System.Action<string> OnCompleteUpload)
     {
-        //string filename = "cat.png";
+        string filename = GameManager.fileName;
 
-        var tex = GameManager.s;//ImageConversion.EncodeToPNG(texture);
+        var tex = GameManager.screenShotPNG;
 
-        Debug.Log("2:" + GameManager.s);
-        Debug.Log("3:" + tex);
-
-
-        var byteArr = Encoding.UTF8.GetBytes(data);
-        
         List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
 
         //System.String name, System.Byte[] data, System.String fileName, System.String contentType
-        formData.Add(new MultipartFormFileSection("imgfile", tex, "cat.png", "image/png")); //tex //byteArr
+        formData.Add(new MultipartFormFileSection("imgfile", tex, filename, "image/png"));
         //formData.Add(new MultipartFormFileSection("type", type));
-
-
 
         var path = string.Format("{0}/{1}", url, "uploadimage"); //"{0}/{1}"의 의미??
 

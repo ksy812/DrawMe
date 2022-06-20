@@ -6,9 +6,9 @@ public class Customer : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
     new Rigidbody2D rigidbody;
-    public Sprite[] sprite; 
+    public Sprite[] sprite;
     public string[] comment;
-    
+
     private string now_comment;
     public static float satisfaction; //****
 
@@ -70,7 +70,7 @@ public class Customer : MonoBehaviour
 
 
     public string getNowComment()
-    {   
+    {
         return now_comment;
     }
 }
