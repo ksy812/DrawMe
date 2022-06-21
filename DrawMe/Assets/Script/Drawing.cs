@@ -27,7 +27,7 @@ public class Drawing : MonoBehaviour
 
     private float lineThickness;
 
-    int sort=0; //라인 순서
+    int sort = 0; //라인 순서
 
     void Start()
     {
@@ -39,7 +39,7 @@ public class Drawing : MonoBehaviour
 
     void Update()
     {
-            Draw();
+        Draw();
     }
 
     void Draw()
@@ -47,16 +47,16 @@ public class Drawing : MonoBehaviour
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Camera.main.transform.forward);
         if (hit.collider == null)
-             return;
+            return;
 
         if (Input.GetMouseButtonDown(0))
         {
             //if (CheckClick(mousePos))
-                CreateLine(mousePos);
+            CreateLine(mousePos);
         }
         else if (Input.GetMouseButton(0))
         {
-                ConnectLine(mousePos);
+            ConnectLine(mousePos);
         }
     }
 

@@ -94,18 +94,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 97526287463188535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ccdfc8e149781b48a39300f955bd817, type: 3}
+  m_Script: {fileID: 11500000, guid: e24eb9b812b833140ab1652904cd1502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprite:
   - {fileID: 21300000, guid: fc29e8db497ff6b4daf4b418dada7448, type: 3}
   - {fileID: 21300000, guid: fc29e8db497ff6b4daf4b418dada7448, type: 3}
   comment:
-  - "\uADF8\uB9BC \uADF8\uB824\uC8FC\uC138\uC694"
-  - "\uC88B\uC544\uC694"
-  - "\uBCC4\uB85C\uC608\uC694"
-  good_money: 333
-  bad_money: 3
+  - "\u3131\u3139"
+  - "\u3148\u3147"
+  - "\u3142\u3139"
+  good_money: 222
+  bad_money: 2
 --- !u!50 &97526287463188534
 Rigidbody2D:
   serializedVersion: 4
