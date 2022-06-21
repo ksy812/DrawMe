@@ -13,8 +13,9 @@ public class Money : MonoBehaviour
         amount += money;
     }
 
-    void Start()
+    void Awake()
     {
+        amount = 0;
         text.text = "0";
     }
     void Update()
