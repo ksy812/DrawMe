@@ -6,6 +6,8 @@ public class Customer : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
     new Rigidbody2D rigidbody;
+
+    public string customer_name; //∞Ì∞¥ ¿Ã∏ß
     public Sprite[] sprite;
     public string[] comment;
 
