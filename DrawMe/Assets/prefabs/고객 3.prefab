@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24eb9b812b833140ab1652904cd1502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customer_name: jellyfish
   sprite:
   - {fileID: 21300000, guid: fc29e8db497ff6b4daf4b418dada7448, type: 3}
   - {fileID: 21300000, guid: fc29e8db497ff6b4daf4b418dada7448, type: 3}
