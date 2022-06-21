@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Customer.satisfaction = " + Customer.satisfaction);*/
         Debug.Log("serverManager.TakeModel() / drawingManager.SetClear()");
         drawingManager.SetClear();
-        Debug.Log("acc: " + Customer.satisfaction);
     }
 
 
