@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
 using UnityEngine.SceneManagement;
+using System.Globalization;
 
 public class packet
 {
@@ -18,7 +19,7 @@ public class uploader : packet
 
 public class ModelManager : MonoBehaviour
 {
-    string url = "http://localhost:3000";
+    string url = "http://localhost:3000";//"https://drawme.emirim.kr"; //"http://localhost:3000";
     public float accuracy = -1f;
     public static string type = null;
 
@@ -29,13 +30,15 @@ public class ModelManager : MonoBehaviour
 
     public void TakeModel()
     {
-        type = "dog"; //crab
+        type = "jellyfish";//Customer.customer_name;//"dog"; //crab
         StartCoroutine(Upload(result =>
         {
             var responseResult = JsonConvert.DeserializeObject<uploader>(result); //
             Debug.Log("Upload 성공여부 : " + responseResult.success);
             Debug.Log("acc 반환값 : " + responseResult.acc);
-            Customer.satisfaction = float.Parse(responseResult.acc);
+            string str = responseResult.acc;
+            Debug.Log("str : " + str);
+            Customer.satisfaction = float.Parse(responseResult.acc, CultureInfo.InvariantCulture.NumberFormat);
             Debug.Log("Customer.satisfaction : " + Customer.satisfaction);
             if (responseResult.success)
             {
