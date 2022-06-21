@@ -43,12 +43,12 @@ public class GameManager : MonoBehaviour
     public void OnClickComplete()
     {
         TakeCapture();
-
-        float satisfaction = serverManager.TakeModel();
-        Customer.satisfaction = satisfaction; //나중에 모델 따라 만족도 설정
+        serverManager.TakeModel();
+        //float satisfaction = serverManager.accuracy;//serverManager.TakeModel();
+        /*Customer.satisfaction = satisfaction; //나중에 모델 따라 만족도 설정
         Debug.Log("satisfaction = " + satisfaction);
-        Debug.Log("Customer.satisfaction = " + Customer.satisfaction);
-
+        Debug.Log("Customer.satisfaction = " + Customer.satisfaction);*/
+        Debug.Log("serverManager.TakeModel() / drawingManager.SetClear()");
         drawingManager.SetClear();
     }
 
@@ -88,8 +88,8 @@ public class GameManager : MonoBehaviour
         //Destroy(screenShot);
     }
 
-/*    private IEnumerator ScreenShotRoutine()
-    {
-        yield return new WaitForEndOfFrame();
-    }*/
+    /*    private IEnumerator ScreenShotRoutine()
+        {
+            yield return new WaitForEndOfFrame();
+        }*/
 }
