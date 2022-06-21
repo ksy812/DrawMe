@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Money : MonoBehaviour
 {
-    private static float amount = 0;
+    public static float amount = 0;
     public Text text;
 
     public static void AddMoney(float money)
