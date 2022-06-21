@@ -28,11 +28,11 @@ public class ChangeScene : MonoBehaviour
                 GameManager_order.customer.SetActive(false);
                 GameManager_order.orderbox.SetActive(false);
                 break;
-            case "BtnComplete":
-                SceneManager.LoadScene("SceneGameCustomer");
-                GameManager_order.customer.SetActive(true);
-                GameManager_order.orderbox.SetActive(true);
-                break;
+            //case "BtnComplete":
+            //    SceneManager.LoadScene("SceneGameCustomer");
+            //    GameManager_order.customer.SetActive(true);
+            //    GameManager_order.orderbox.SetActive(true);
+            //    break;
             case "EndBtn":
                 SceneManager.LoadScene("SceneTitleMenu");
                 break;

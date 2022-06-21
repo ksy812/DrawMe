@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-        savePath = Application.dataPath + "/ScreenShots/";
+        savePath = Application.dataPath + "/Resources/ScreenShots/";
 
         //화면 해상도 설정
         int setWidth = 1920;
@@ -49,9 +50,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("satisfaction = " + satisfaction);
         Debug.Log("Customer.satisfaction = " + Customer.satisfaction);*/
         Debug.Log("serverManager.TakeModel() / drawingManager.SetClear()");
-        drawingManager.SetClear();
-    }
 
+        drawingManager.SetClear();
+        cam.targetTexture = null;
+    }
+   
 
     private void TakeCapture()
     {
