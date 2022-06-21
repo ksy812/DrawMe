@@ -58,11 +58,11 @@ public class GameManager : MonoBehaviour
         RenderTexture renderTexture = new RenderTexture(Screen.width, Screen.height, 24); //1920 1200
         cam.targetTexture = renderTexture;
 
-        Texture2D screenShot = new Texture2D(750, 800, TextureFormat.RGB24, false); //캡쳐 크기
+        Texture2D screenShot = new Texture2D(720, 780, TextureFormat.RGB24, false); //캡쳐 크기
         cam.Render();
         RenderTexture.active = renderTexture;
 
-        Rect area = new Rect(710, 190, 1460, 1190); //실질적으로 캡쳐 위치 조정하는 부분
+        Rect area = new Rect(720, 200, 720, 780); //직접적으로 캡쳐 위치 조정하는 부분
         //Rect area = new Rect(750, 0f, 1500, 1000); //기준
         screenShot.ReadPixels(area, 0, 0);
         screenShot.Apply();
