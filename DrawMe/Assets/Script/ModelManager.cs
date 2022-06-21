@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
+using UnityEngine.SceneManagement;
 
 public class packet
 {
@@ -36,8 +37,14 @@ public class ModelManager : MonoBehaviour
             Debug.Log("acc ¹ÝÈ¯°ª : " + responseResult.acc);
             Customer.satisfaction = float.Parse(responseResult.acc);
             Debug.Log("Customer.satisfaction : " + Customer.satisfaction);
+            if (responseResult.success)
+            {
+                SceneManager.LoadScene("SceneGameCustomer");
+                GameManager_order.customer.SetActive(true);
+                GameManager_order.orderbox.SetActive(true);
+            }
         }));
-        //Debug.Log("accuracy2: " + accuracy);
+        Debug.Log("TakeModel()");
         //return accuracy;
     }
 
