@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class ChangeScene : MonoBehaviour
 {
-    
+
     public void ChangeSceneBtn()
-    {        
+    {
         switch (this.gameObject.name)
         {
             case "GameStartBtn":
@@ -44,8 +44,8 @@ public class ChangeScene : MonoBehaviour
                 break;
         }
 
-        
+
     }
 
-    
+
 }
