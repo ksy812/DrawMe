@@ -37,7 +37,7 @@ public class ModelManager : MonoBehaviour
             Customer.satisfaction = float.Parse(responseResult.acc);
             Debug.Log("Customer.satisfaction : " + Customer.satisfaction);
         }));
-        //Debug.Log("accuracy2: " + accuracy);
+        Debug.Log("TakeModel()");
         //return accuracy;
     }
 
@@ -57,9 +57,10 @@ public class ModelManager : MonoBehaviour
 
         UnityWebRequest webRequest = UnityWebRequest.Post(path, formData);
         webRequest.downloadHandler = new DownloadHandlerBuffer();
-        yield return webRequest.SendWebRequest();
+        webRequest.SendWebRequest();
 
         var result = webRequest.downloadHandler.text;
         OnCompleteUpload(result);
+        yield return null;
     }
 }
