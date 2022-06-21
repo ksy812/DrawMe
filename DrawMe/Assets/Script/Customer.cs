@@ -6,11 +6,11 @@ public class Customer : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
     new Rigidbody2D rigidbody;
-    public Sprite[] sprite; 
+    public Sprite[] sprite;
     public string[] comment;
-    
+
     private string now_comment;
-    public static int satisfaction;
+    public static float satisfaction; //****
 
     public float good_money;
     public float bad_money;
@@ -43,7 +43,7 @@ public class Customer : MonoBehaviour
         rigidbody.velocity = Vector2.down * 1600;
     }
 
-    public void Reaction(int satisfaction)
+    public void Reaction(float satisfaction)
     {
         //1. 이미지 바뀌기 / 대사 바뀌기 (시간차)
         //2. 금액 지불하기
@@ -70,7 +70,7 @@ public class Customer : MonoBehaviour
 
 
     public string getNowComment()
-    {   
+    {
         return now_comment;
     }
 }

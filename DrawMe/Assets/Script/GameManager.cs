@@ -8,12 +8,15 @@ using System.IO;
 public class GameManager : MonoBehaviour
 {
     public Camera cam;
+    public Slider slider;
 
     public Drawing drawingManager;
-    public TakeModel serverManager;
+    public ModelManager serverManager;
 
     private string savePath;
-    private string fileName;
+    public static string fileName;
+    public static byte[] screenShotPNG;
+
 
     void Start()
     {
@@ -27,18 +30,25 @@ public class GameManager : MonoBehaviour
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         //Screen.SetResolution(Screen.width, (Screen.width * 16) / 9, true);
     }
-    
 
     public void OnColor(int color)
     {
         drawingManager.SetColor(color);
     }
 
+    public void OnThickness()
+    {
+        drawingManager.SetThickness(slider.value);
+    }
     public void OnClickComplete()
     {
-        serverManager.Btn();
         TakeCapture();
-        Customer.satisfaction = 10; //나중에 모델 따라 만족도 설정
+
+        float satisfaction = serverManager.TakeModel();
+        Customer.satisfaction = satisfaction; //나중에 모델 따라 만족도 설정
+        Debug.Log("satisfaction = " + satisfaction);
+        Debug.Log("Customer.satisfaction = " + Customer.satisfaction);
+
         drawingManager.SetClear();
     }
 
@@ -52,11 +62,13 @@ public class GameManager : MonoBehaviour
         cam.Render();
         RenderTexture.active = renderTexture;
 
-        Rect area = new Rect(710, 190, 1460, 1190); //직접적으로 캡쳐 위치 조정하는 부분
-        //Rect area = new Rect(750, 0f, 1500, 1000);
+        Rect area = new Rect(710, 190, 1460, 1190); //실질적으로 캡쳐 위치 조정하는 부분
+        //Rect area = new Rect(750, 0f, 1500, 1000); //기준
         screenShot.ReadPixels(area, 0, 0);
         screenShot.Apply();
 
+        screenShotPNG = screenShot.EncodeToPNG();
+        //Debug.Log("1:" + screenShotPNG);
         try
         {
             if (Directory.Exists(savePath) == false)
@@ -65,20 +77,19 @@ public class GameManager : MonoBehaviour
             }
             fileName = savePath + System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".png";
 
-            File.WriteAllBytes(fileName, screenShot.EncodeToPNG()); //저장
-
+            File.WriteAllBytes(fileName, screenShotPNG); //저장
+            //File.WriteAllBytes(fileName, screenShot.EncodeToPNG());
         }
         catch (Exception e)
         {
             Debug.Log("capture error");
             Debug.Log(e);
         }
-
         //Destroy(screenShot);
     }
 
-    private IEnumerator ScreenShotRoutine()
+/*    private IEnumerator ScreenShotRoutine()
     {
         yield return new WaitForEndOfFrame();
-    }
+    }*/
 }
