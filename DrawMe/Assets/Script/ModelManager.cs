@@ -37,7 +37,7 @@ public class ModelManager : MonoBehaviour
             Customer.satisfaction = float.Parse(responseResult.acc);
             Debug.Log("Customer.satisfaction : " + Customer.satisfaction);
         }));
-        //Debug.Log("accuracy2: " + accuracy);
+        Debug.Log("TakeModel()");
         //return accuracy;
     }
 
