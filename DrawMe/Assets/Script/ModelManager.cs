@@ -13,13 +13,14 @@ public class packet
 }
 public class uploader : packet
 {
-    public bool success;
-    public string acc;
+    public bool success { get; set; }
+    public string acc { get; set; }
 }
 
 public class ModelManager : MonoBehaviour
 {
-    string url = "http://localhost:3000";//"https://drawme.emirim.kr"; //"http://localhost:3000";
+    readonly string url = "https://drawme.emirim.kr";
+    //"https://drawme.emirim.kr"; //"http://localhost:3000";
     public float accuracy = -1f;
     public static string type = null;
 
@@ -33,6 +34,8 @@ public class ModelManager : MonoBehaviour
         type = "jellyfish";//Customer.customer_name;//"dog"; //crab
         StartCoroutine(Upload(result =>
         {
+            Debug.Log("===BEFORE!!! var responseResult===");
+            Debug.Log(result);
             var responseResult = JsonConvert.DeserializeObject<uploader>(result); //
             Debug.Log("Upload 성공여부 : " + responseResult.success);
             Debug.Log("acc 반환값 : " + responseResult.acc);
@@ -70,6 +73,9 @@ public class ModelManager : MonoBehaviour
         yield return webRequest.SendWebRequest();
 
         var result = webRequest.downloadHandler.text;
+        Debug.Log("===result===");
+        Debug.Log(result);
         OnCompleteUpload(result); //
+        Debug.Log("===AFTER!!! OnCompleteUpload() call===");
     }
 }
