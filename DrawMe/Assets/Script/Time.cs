@@ -13,8 +13,8 @@ public class Time : MonoBehaviour
 
     public Sprite moon;
 
-    long minutes;
-
+    int minutes;
+    int seconds;
 
     private void Awake()
     {
@@ -22,28 +22,32 @@ public class Time : MonoBehaviour
         watch = new Stopwatch();
         minutes = 0;
     }
-    
+
     void Update()
     {
-        minutes = watch.ElapsedMilliseconds / 60000;
-        //minutes = watch.ElapsedMilliseconds / 1000; //초
-        time.text = minutes + "";
-        //if (minutes % 2 == 0 && minutes != 0) ;  //2분 지날때 마다 바뀜
-        if (minutes == 3) icon_time.sprite = moon; //3분 되면 저녁 그림
-        if (minutes >= 5)
+        //minutes = (int)watch.ElapsedMilliseconds / 60000;
+        seconds = (int)watch.ElapsedMilliseconds / 1000; //초
+        time.text = string.Format("{0:00}", minutes) + " : " + string.Format("{0:00}", seconds);
+        if (seconds >= 60)
         {
-            if(watch.ElapsedMilliseconds / 1000 % 2 == 0) time.color = Color.red;
+            minutes++;
+            watch.Restart();
+        }
+        if (minutes == 2) watch.Stop();
+        if (minutes >= 1)
+        {
+            if (seconds % 2 == 0) time.color = Color.red;
             else time.color = Color.white;
         }
-        if (minutes >= 6 && Customer.object_is_destory) //6분 되면 게임 종료
+        if (minutes >= 2 && Customer.object_is_destory) //6분 되면 게임 종료
         {
-            UnityEngine.Debug.Log("엔딩씬 호출");
+            //UnityEngine.Debug.Log("엔딩씬 호출");
             watch.Stop();
             watch.Reset();
-            DontDestroy.destroy=true;
+            DontDestroy.destroy = true;
             //엔딩 효과
             SceneManager.LoadScene("SceneEnding");
-            
+
         }
     }
 }

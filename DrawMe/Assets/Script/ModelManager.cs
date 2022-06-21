@@ -26,19 +26,19 @@ public class ModelManager : MonoBehaviour
         //Debug.Log("ModelManager Start() call");
     }
 
-    public float TakeModel()
+    public void TakeModel()
     {
-        type = "crab";
+        type = "dog"; //crab
         StartCoroutine(Upload(result =>
         {
             var responseResult = JsonConvert.DeserializeObject<uploader>(result);
             Debug.Log("Upload 성공여부 : " + responseResult.success);
             Debug.Log("acc 반환값 : " + responseResult.acc);
-            accuracy = float.Parse(responseResult.acc);
-            Debug.Log("accuracy1: " + accuracy);
+            Customer.satisfaction = float.Parse(responseResult.acc);
+            Debug.Log("Customer.satisfaction : " + Customer.satisfaction);
         }));
-        Debug.Log("accuracy2: " + accuracy);
-        return accuracy;
+        //Debug.Log("accuracy2: " + accuracy);
+        //return accuracy;
     }
 
     private IEnumerator Upload(System.Action<string> OnCompleteUpload)
