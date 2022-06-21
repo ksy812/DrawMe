@@ -32,7 +32,7 @@ public class ModelManager : MonoBehaviour
         type = "dog"; //crab
         StartCoroutine(Upload(result =>
         {
-            var responseResult = JsonConvert.DeserializeObject<uploader>(result);
+            var responseResult = JsonConvert.DeserializeObject<uploader>(result); //
             Debug.Log("Upload 성공여부 : " + responseResult.success);
             Debug.Log("acc 반환값 : " + responseResult.acc);
             Customer.satisfaction = float.Parse(responseResult.acc);
@@ -67,6 +67,6 @@ public class ModelManager : MonoBehaviour
         yield return webRequest.SendWebRequest();
 
         var result = webRequest.downloadHandler.text;
-        OnCompleteUpload(result);
+        OnCompleteUpload(result); //
     }
 }
