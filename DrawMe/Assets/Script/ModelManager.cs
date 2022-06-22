@@ -19,7 +19,7 @@ public class uploader : packet
 
 public class ModelManager : MonoBehaviour
 {
-    readonly string url = "http://localhost:3000";
+    readonly string url = "https://drawme.emirim.kr";
     //"https://drawme.emirim.kr"; //"http://localhost:3000";
     public float accuracy = -1f;
     public static string type = null;
