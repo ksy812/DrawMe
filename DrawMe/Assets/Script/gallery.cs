@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class gallery : MonoBehaviour
 {
-    public ScrollRect scrollRect;
+    private ScrollRect scrollRect;
     public GameObject imgPrefab;
     public List<RectTransform> images=new List<RectTransform>();
     void Start()
@@ -16,8 +16,19 @@ public class gallery : MonoBehaviour
         {
             imgPrefab.GetComponent<Image>().sprite = Sprite.Create(f, new Rect(0, 0, f.width, f.height), new Vector2(0.5f, 0.5f));
             var newImg=Instantiate(imgPrefab,scrollRect.content).GetComponent<RectTransform>();
-            //Sprite sprite = Sprite.Create(f, new Rect(0, 0, f.width, f.height), new Vector2(0.5f, 0.5f));
+            
             images.Add(newImg);
+            float y = 0f;
+            for(int i=0; i<images.Count; i++)
+            {
+                if (i % 2 == 0) images[i].anchoredPosition = new Vector2(400f, y);
+                else
+                {
+                    images[i].anchoredPosition = new Vector2(-400, y);
+                    y += images[i].sizeDelta.y + 10f;
+                }
+            }
+            scrollRect.content.sizeDelta = new Vector2(scrollRect.content.sizeDelta.x, y);
         }
 
     }
