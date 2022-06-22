@@ -19,6 +19,8 @@ public class Customer : MonoBehaviour
 
     public static bool object_is_destory;
 
+    public static string curr_customer;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -26,6 +28,7 @@ public class Customer : MonoBehaviour
         rigidbody.velocity = Vector2.up * 1600;
         satisfaction = -1;
         object_is_destory = true;
+        curr_customer = customer_name;
 
     }
     private void Update()
@@ -51,10 +54,10 @@ public class Customer : MonoBehaviour
         //2. 금액 지불하기
         //3. 밑으로 사라지기 (객체 삭제)
         Debug.Log("Customer.cs: satisfaction = " + satisfaction);
-        if (satisfaction > 0.5f)
+        if (satisfaction > 50)
         {
             spriteRenderer.sprite = sprite[0];  //만족
-            now_comment = comment[2];
+            now_comment = comment[1];
             //만족스러운 금액 지불
             Money.AddMoney(good_money);
 
