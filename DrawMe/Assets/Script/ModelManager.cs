@@ -31,7 +31,7 @@ public class ModelManager : MonoBehaviour
 
     public void TakeModel()
     {
-        type = "jellyfish";//Customer.customer_name;//"dog"; //crab
+        type = Customer.curr_customer;//"dog"; //crab
         StartCoroutine(Upload(result =>
         {
             Debug.Log("===BEFORE!!! var responseResult===");
@@ -41,7 +41,7 @@ public class ModelManager : MonoBehaviour
             Debug.Log("acc ¹ÝÈ¯°ª : " + responseResult.acc);
             string str = responseResult.acc;
             Debug.Log("str : " + str);
-            Customer.satisfaction = float.Parse(responseResult.acc, CultureInfo.InvariantCulture.NumberFormat);
+            Customer.satisfaction = float.Parse(responseResult.acc, CultureInfo.InvariantCulture.NumberFormat)*100;
             Debug.Log("Customer.satisfaction : " + Customer.satisfaction);
             if (responseResult.success)
             {
@@ -74,7 +74,7 @@ public class ModelManager : MonoBehaviour
 
         var result = webRequest.downloadHandler.text;
         Debug.Log("===result===");
-        Debug.Log(result);
+        Debug.Log("****"+result.ToString());
         OnCompleteUpload(result); //
         Debug.Log("===AFTER!!! OnCompleteUpload() call===");
     }

@@ -15,6 +15,7 @@ public class Money : MonoBehaviour
 
     void Start()
     {
+        amount = 0;
         text.text = "0";
     }
     void Update()
