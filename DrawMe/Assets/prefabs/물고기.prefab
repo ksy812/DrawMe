@@ -105,8 +105,11 @@ MonoBehaviour:
   - "(\uBCF4\uAE00\uBCF4\uAE00\uAF2C\uB974\uB975)"
   - "^^(\uBCF4\uAE00\uBCF4\uAE00\uAF2C\uB974\uB975)"
   - "(\uBB3C\uBC49\uC74C)"
-  good_money: 111
-  bad_money: 1
+  money:
+  - 40
+  - 70
+  - 90
+  - 120
 --- !u!50 &4800750466395645648
 Rigidbody2D:
   serializedVersion: 4

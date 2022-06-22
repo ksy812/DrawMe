@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     public void OnClickComplete()
     {
         TakeCapture();
-        serverManager.TakeModel();
+        Customer.satisfaction = 60.0f;
         //float satisfaction = serverManager.accuracy;//serverManager.TakeModel();
         /*Customer.satisfaction = satisfaction; //나중에 모델 따라 만족도 설정
         Debug.Log("satisfaction = " + satisfaction);
@@ -53,6 +53,9 @@ public class GameManager : MonoBehaviour
 
         drawingManager.SetClear();
         cam.targetTexture = null;
+        SceneManager.LoadScene("SceneGameCustomer");
+        GameManager_order.customer.SetActive(true);
+        GameManager_order.orderbox.SetActive(true);
     }
    
 

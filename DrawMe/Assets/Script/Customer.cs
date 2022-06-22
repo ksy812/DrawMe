@@ -14,8 +14,7 @@ public class Customer : MonoBehaviour
     private string now_comment;
     public static float satisfaction; //****
 
-    public float good_money;
-    public float bad_money;
+    public float[] money = { 0, 0, 0, 0};
 
     public static bool object_is_destory;
 
@@ -54,20 +53,26 @@ public class Customer : MonoBehaviour
         //2. 금액 지불하기
         //3. 밑으로 사라지기 (객체 삭제)
         Debug.Log("Customer.cs: satisfaction = " + satisfaction);
+
         if (satisfaction > 50)
         {
             spriteRenderer.sprite = sprite[0];  //만족
             now_comment = comment[1];
             //만족스러운 금액 지불
-            Money.AddMoney(good_money);
+            //Money.AddMoney(good_money);
 
+            if(satisfaction > 80) Money.AddMoney(money[3]);
+            else Money.AddMoney(money[2]);
         }
         else
         {
             spriteRenderer.sprite = sprite[1]; //불만족
             now_comment = comment[2];
             //불만족스러운 금액 지불
-            Money.AddMoney(bad_money);
+            //Money.AddMoney(bad_money);
+
+            if (satisfaction > 30) Money.AddMoney(money[1]);
+            else Money.AddMoney(money[0]);
         }
         Invoke("MoveDown", 1f);
         Destroy(this.gameObject, 1.5f);

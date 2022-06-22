@@ -14,7 +14,7 @@ public class EndingManager : MonoBehaviour
     private void Start()
     {
 
-        if (Money.amount > 20) is_success = true;
+        if (Money.amount >= 1000) is_success = true;
         else is_success = false;
 
         if (is_success)
