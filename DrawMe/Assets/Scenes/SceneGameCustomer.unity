@@ -348,7 +348,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customers:
   - {fileID: 97526287463188535, guid: 8282a567b19930147bea8e50ac051429, type: 3}
+  - {fileID: 1287959189047475172, guid: 1470f6a1c21c3cc438d0fb90e3aa5c38, type: 3}
   - {fileID: 5548264815112306530, guid: ec3c71da8457d4545b5f484f1e8dedac, type: 3}
+  - {fileID: 4800750466395645649, guid: 22896d80d18f584458042cbf7955b47f, type: 3}
+  - {fileID: 5573803416143760666, guid: 63a4c4713e5278f4e93c604cd40e5d26, type: 3}
+  - {fileID: 8179824526376398437, guid: 88256ac567f9cf84ab6158b63eb1d08e, type: 3}
+  - {fileID: 5537471388702072141, guid: 8d73d5aa75edc5d4fa202fb2c80c4429, type: 3}
+  - {fileID: 6095861420661933177, guid: d40d96fd1d93a6b45be421e401ffac46, type: 3}
   orderbox_prefab: {fileID: 8100404583198677390, guid: 1e99f62fd64525945b18bcd9c276c229, type: 3}
   okButton_prefab: {fileID: 2157617636048130431, guid: 5e998ebdd8b19aa40831f75a07525eda, type: 3}
   spawnPoint_customer: {x: 500, y: -500}
