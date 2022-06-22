@@ -14,9 +14,7 @@ public class Customer : MonoBehaviour
     private string now_comment;
     public static float satisfaction; //****
 
-    public float[] money = { 30, 70, 100, 150};
-    public float good_money;
-    public float bad_money;
+    public float[] money = { 0, 0, 0, 0};
 
     public static bool object_is_destory;
 

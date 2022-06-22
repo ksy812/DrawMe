@@ -105,8 +105,11 @@ MonoBehaviour:
   - "\uBC94\uC778\uC758 \uBABD\uD0C0\uC8FC\uB97C \uB9E1\uAE30\uACE0 \uC2F6\uC2B5\uB2C8\uB2E4!"
   - "\uAC10\uC0AC\uD569\uB2C8\uB2E4!! \uAF2D \uBC94\uC778\uC744 \uC7A1\uC544\uB0B4\uACA0\uC2B5\uB2C8\uB2E4!!!"
   - "\uC624.. \uCC38\uACE0\uD558\uB3C4\uB85D \uD558\uACA0\uC2B5\uB2C8\uB2E4..!"
-  good_money: 111
-  bad_money: 1
+  money:
+  - 50
+  - 70
+  - 90
+  - 180
 --- !u!50 &5548264815112306531
 Rigidbody2D:
   serializedVersion: 4
