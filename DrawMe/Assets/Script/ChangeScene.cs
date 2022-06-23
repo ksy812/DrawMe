@@ -42,10 +42,12 @@ public class ChangeScene : MonoBehaviour
                 DontDestroy.destroy = true;
                 SceneManager.LoadScene("SceneTitleMenu");
                 break;
+            case "Gallery":
+                SceneManager.LoadScene("SceneGallery");
+                break;
         }
 
 
     }
-
 
 }
