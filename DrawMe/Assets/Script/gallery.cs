@@ -19,14 +19,10 @@ public class gallery : MonoBehaviour
             
             images.Add(newImg);
             float y = 0f;
-            for(int i=0; i<images.Count; i++)
+            for (int i = 0; i < images.Count; i++)
             {
-                if (i % 2 == 0) images[i].anchoredPosition = new Vector2(400f, y);
-                else
-                {
-                    images[i].anchoredPosition = new Vector2(-400, y);
-                    y += images[i].sizeDelta.y + 10f;
-                }
+                if (i % 4 == 0) y += images[i].sizeDelta.y;
+
             }
             scrollRect.content.sizeDelta = new Vector2(scrollRect.content.sizeDelta.x, y);
         }

@@ -303,7 +303,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   slider: {fileID: 0}
   drawingManager: {fileID: 1024434877}
-  serverManager: {fileID: 0}
+  modelManager: {fileID: 0}
 --- !u!114 &151728098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,7 +453,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   slider: {fileID: 754056249}
   drawingManager: {fileID: 1024434877}
-  serverManager: {fileID: 144232834}
+  modelManager: {fileID: 144232834}
 --- !u!114 &219258978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,7 +627,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   slider: {fileID: 0}
   drawingManager: {fileID: 1024434877}
-  serverManager: {fileID: 0}
+  modelManager: {fileID: 0}
 --- !u!114 &222969789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,7 +845,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   slider: {fileID: 0}
   drawingManager: {fileID: 1024434877}
-  serverManager: {fileID: 0}
+  modelManager: {fileID: 0}
 --- !u!1 &347638423
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,7 +992,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   slider: {fileID: 0}
   drawingManager: {fileID: 1024434877}
-  serverManager: {fileID: 0}
+  modelManager: {fileID: 0}
 --- !u!114 &398310866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1221,7 +1221,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   slider: {fileID: 0}
   drawingManager: {fileID: 1024434877}
-  serverManager: {fileID: 0}
+  modelManager: {fileID: 0}
 --- !u!114 &446529311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1518,7 +1518,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   slider: {fileID: 0}
   drawingManager: {fileID: 1024434877}
-  serverManager: {fileID: 0}
+  modelManager: {fileID: 0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -2031,7 +2031,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   slider: {fileID: 754056249}
   drawingManager: {fileID: 1024434877}
-  serverManager: {fileID: 144232834}
+  modelManager: {fileID: 0}
 --- !u!1 &755361329
 GameObject:
   m_ObjectHideFlags: 0
@@ -2668,7 +2668,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   slider: {fileID: 0}
   drawingManager: {fileID: 1024434877}
-  serverManager: {fileID: 0}
+  modelManager: {fileID: 0}
 --- !u!114 &1295966541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2912,7 +2912,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   slider: {fileID: 0}
   drawingManager: {fileID: 1024434877}
-  serverManager: {fileID: 0}
+  modelManager: {fileID: 0}
 --- !u!1 &1508917674
 GameObject:
   m_ObjectHideFlags: 0
@@ -2968,7 +2968,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   slider: {fileID: 0}
   drawingManager: {fileID: 1024434877}
-  serverManager: {fileID: 0}
+  modelManager: {fileID: 0}
 --- !u!114 &1508917677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3118,7 +3118,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   slider: {fileID: 0}
   drawingManager: {fileID: 1024434877}
-  serverManager: {fileID: 0}
+  modelManager: {fileID: 0}
 --- !u!114 &1612657451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3545,7 +3545,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   slider: {fileID: 0}
   drawingManager: {fileID: 1024434877}
-  serverManager: {fileID: 0}
+  modelManager: {fileID: 0}
 --- !u!114 &1971079336
 MonoBehaviour:
   m_ObjectHideFlags: 0

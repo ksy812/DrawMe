@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public Slider slider;
 
     public Drawing drawingManager;
-    public ModelManager serverManager;
+    public ModelManager modelManager;
 
     private string savePath;
     public static string fileName;
@@ -44,20 +44,23 @@ public class GameManager : MonoBehaviour
     public void OnClickComplete()
     {
         TakeCapture();
-        Customer.satisfaction = 60.0f;
+        modelManager.TakeModel();
+        //Customer.satisfaction = 60.0f;
         //float satisfaction = serverManager.accuracy;//serverManager.TakeModel();
         /*Customer.satisfaction = satisfaction; //나중에 모델 따라 만족도 설정
         Debug.Log("satisfaction = " + satisfaction);
         Debug.Log("Customer.satisfaction = " + Customer.satisfaction);*/
-        Debug.Log("serverManager.TakeModel() / drawingManager.SetClear()");
+        //Debug.Log("serverManager.TakeModel() / drawingManager.SetClear()");
 
         drawingManager.SetClear();
         cam.targetTexture = null;
-        SceneManager.LoadScene("SceneGameCustomer");
-        GameManager_order.customer.SetActive(true);
-        GameManager_order.orderbox.SetActive(true);
+        Debug.Log("========test===========" + Customer.satisfaction);
+
+        //        SceneManager.LoadScene("SceneGameCustomer");
+        //        GameManager_order.customer.SetActive(true);
+        //        GameManager_order.orderbox.SetActive(true);
     }
-   
+
 
     private void TakeCapture()
     {
