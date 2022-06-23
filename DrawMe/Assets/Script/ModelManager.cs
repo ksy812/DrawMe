@@ -19,7 +19,8 @@ public class uploader : packet
 
 public class ModelManager : MonoBehaviour
 {
-    readonly string url = "http://drawme.emirim.kr:3010";
+    readonly string url = "https://drawme.emirim.kr";
+    //"https://drawme.emirim.kr"; //"http://localhost:3000";
     public float accuracy = -1f;
     public static string type = null;
 
@@ -38,7 +39,9 @@ public class ModelManager : MonoBehaviour
             var responseResult = JsonConvert.DeserializeObject<uploader>(result); //
             Debug.Log("Upload 성공여부 : " + responseResult.success);
             Debug.Log("acc 반환값 : " + responseResult.acc);
-            Customer.satisfaction = float.Parse(responseResult.acc, CultureInfo.InvariantCulture.NumberFormat) * 100;
+            string str = responseResult.acc;
+            Debug.Log("str : " + str);
+            Customer.satisfaction = float.Parse(responseResult.acc, CultureInfo.InvariantCulture.NumberFormat)*100;
             Debug.Log("Customer.satisfaction : " + Customer.satisfaction);
             if (responseResult.success)
             {
@@ -48,6 +51,7 @@ public class ModelManager : MonoBehaviour
             }
         }));
         Debug.Log("TakeModel()");
+        //return accuracy;
     }
 
     private IEnumerator Upload(System.Action<string> OnCompleteUpload)
@@ -70,7 +74,7 @@ public class ModelManager : MonoBehaviour
 
         var result = webRequest.downloadHandler.text;
         Debug.Log("===result===");
-        Debug.Log("****" + result.ToString());
+        Debug.Log("****"+result.ToString());
         OnCompleteUpload(result); //
         Debug.Log("===AFTER!!! OnCompleteUpload() call===");
     }
