@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,10 +19,12 @@ public class uploader : packet
 
 public class ModelManager : MonoBehaviour
 {
+    //readonly string url = "http://localhost:3000";
     readonly string url = "http://drawme.emirim.kr:3010";
     public float accuracy = -1f;
     public static string type = null;
 
+    public Text text;
     private void Start()
     {
         //Debug.Log("ModelManager Start() call");
@@ -31,20 +33,34 @@ public class ModelManager : MonoBehaviour
     public void TakeModel()
     {
         type = Customer.curr_customer;//"dog"; //crab
+        //Money.amount =-1;
         StartCoroutine(Upload(result =>
         {
-            Debug.Log("===BEFORE!!! var responseResult===");
-            Debug.Log(result);
+            //Money.amount = -2;
+            //text.text = "responseResult";
+            //Debug.Log("===BEFORE!!! var responseResult===");
+            //Debug.Log(result);
             var responseResult = JsonConvert.DeserializeObject<uploader>(result); //
-            Debug.Log("Upload ¼º°ø¿©ºÎ : " + responseResult.success);
-            Debug.Log("acc ¹ÝÈ¯°ª : " + responseResult.acc);
+            Debug.Log("Upload ì„±ê³µì—¬ë¶€ : " + responseResult.success);
+            Debug.Log("acc ë°˜í™˜ê°’ : " + responseResult.acc);
+            //text.text = "responseResult";
+            //Money.amount = -2.5f;
             Customer.satisfaction = float.Parse(responseResult.acc, CultureInfo.InvariantCulture.NumberFormat) * 100;
             Debug.Log("Customer.satisfaction : " + Customer.satisfaction);
+            //Money.amount = -3;
             if (responseResult.success)
             {
+                //Money.amount = -4;
+                
                 SceneManager.LoadScene("SceneGameCustomer");
+                
                 GameManager_order.customer.SetActive(true);
                 GameManager_order.orderbox.SetActive(true);
+            
+            }
+            else
+            {
+                Money.amount = -5;
             }
         }));
         Debug.Log("TakeModel()");
@@ -62,7 +78,7 @@ public class ModelManager : MonoBehaviour
         formData.Add(new MultipartFormFileSection("imgfile", tex, filename, "image/png"));
         formData.Add(new MultipartFormDataSection("customer", type));
 
-        var path = string.Format("{0}/{1}", url, "uploadimage"); //"{0}/{1}"ÀÇ ÀÇ¹Ì??
+        var path = string.Format("{0}/{1}", url, "uploadimage");
 
         UnityWebRequest webRequest = UnityWebRequest.Post(path, formData);
         webRequest.downloadHandler = new DownloadHandlerBuffer();
@@ -72,6 +88,6 @@ public class ModelManager : MonoBehaviour
         Debug.Log("===result===");
         Debug.Log("****" + result.ToString());
         OnCompleteUpload(result); //
-        Debug.Log("===AFTER!!! OnCompleteUpload() call===");
+        //Debug.Log("===AFTER!!! OnCompleteUpload() call===");
     }
 }
