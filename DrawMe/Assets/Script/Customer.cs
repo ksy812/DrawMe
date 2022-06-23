@@ -52,7 +52,7 @@ public class Customer : MonoBehaviour
         //1. 이미지 바뀌기 / 대사 바뀌기 (시간차)
         //2. 금액 지불하기
         //3. 밑으로 사라지기 (객체 삭제)
-        Debug.Log("Customer.cs: satisfaction = " + satisfaction);
+        Debug.Log("CUSTOMER: satisfaction = " + satisfaction);
 
         if (satisfaction > 50)
         {

@@ -54,7 +54,9 @@ public class GameManager : MonoBehaviour
 
         drawingManager.SetClear();
         cam.targetTexture = null;
-        Debug.Log("========test===========" + Customer.satisfaction);
+
+
+        //Debug.Log("========test===========" + Customer.satisfaction);
 
         //        SceneManager.LoadScene("SceneGameCustomer");
         //        GameManager_order.customer.SetActive(true);
